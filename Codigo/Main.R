@@ -13,9 +13,10 @@ names(datos)
 #Al mirar los datos, podemos ver que las 3 primeras
 #columnas, no son de mi interes para mi proyecto.
 
-#Eliminaremos las 3 primeras columnas
+#Eliminaremos las 3 primeras columnas y las columnas de lat e lng
 datosfilt <- datos %>%
-  select(-X, -Y, -FID)
+  select(-X, -Y, -FID, -lat, -lng)
 
 view(datosfilt)
+
 
