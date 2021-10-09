@@ -1,0 +1,21 @@
+---
+title: "Preguntas iniciales"
+author: "Camila Villagrán"
+date: "08-10-2021"
+output: html_document
+---
+
+# Preguntas
+
+1) ¿Cuales son las 3 comunas en donde se registran la mayor cantidad de atropellos en la Región Metropolitana?
+
+2) ¿Cuales son las 3 comunas en donde se registran la menor cantidad de atropellos en la Región Metropolitana ?
+
+3) Dividiendo la Región Metropolitana por distritos, ¿Cual distrito es el que presenta la mayor y menor cantidad de accidentes leves? 
+
+4) ¿Cuales comunas presentan la mayor cantidad de fallecidos?
+
+5) ¿Que intersección de calle, posee la mayor cantidad de accidentes?
+
+6) Dentro de las 3 comunas que presentan la mayor cantidad de atropellos, ¿Cuantos fallecidos hay en promedio?
+
