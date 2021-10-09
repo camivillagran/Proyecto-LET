@@ -4,7 +4,7 @@ Este repositorio contiene la informacion sobre un proyecto, el cual trata sobre 
 
 ## Base de datos :computer: :
 
-En esta base de datos, se muestran datos, sobre los accidentes de transito en la RM. Los datos fueron sacados desde la Conaset link: <https://mapas-conaset.opendata.arcgis.com/datasets/a6b29cedc95d41e98e5a56a617afdded_0/about>
+En esta base de datos, se muestran datos, sobre los accidentes de transito en la RM ocurridos en el año 2018. Los datos fueron sacados desde la Conaset link: <https://mapas-conaset.opendata.arcgis.com/datasets/a6b29cedc95d41e98e5a56a617afdded_0/about>
 
 ## Graficos :bar_chart: :
 
