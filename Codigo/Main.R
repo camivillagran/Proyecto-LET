@@ -5,12 +5,9 @@ require(tidyverse)
 #  tibble()
 ruta = file.choose()
 datos <- rio::import(ruta)
-#visualizar los datos
-View(datos)
-
 
 names(datos)
-#Al mirar los datos, podemos ver que las 3 primeras
+#Al mirar los nombre de las variables, podemos ver que las 3 primeras
 #columnas, no son de mi interes para mi proyecto.
 
 #Eliminaremos las 3 primeras columnas y las columnas de lat e lng
@@ -19,4 +16,8 @@ datosfilt <- datos %>%
 
 view(datosfilt)
 
-
+comunas = datos$Comuna
+comunas
+table(comunas)
+#PE = Peñalolen 
+names(table(comunas))
