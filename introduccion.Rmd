@@ -4,7 +4,6 @@ author: "Camila Villagrán"
 date: "14-10-2021"
 output: html_document
 ---
-# Introducción 
 
 En los últimos años, hemos podido evidenciar el aumento de vehículos como medio de transporte. Hoy en día, tener un auto, se ha vuelto algo común, cómodo y esencial para muchos. Esto se debe a que nos permiten ir de un lugar a otro, de manera más rápida, eficaz y lo más importante es que nos ahorran tiempo.
 
