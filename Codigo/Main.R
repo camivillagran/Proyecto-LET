@@ -1,7 +1,6 @@
 require(tidyverse)
 library(ggplot2)
 
-
 # base de datos----
 ruta = file.choose()
 datos <- rio::import(ruta)
@@ -31,7 +30,7 @@ for(i in 1:length(datosfilt$CalleUno)){
   }
 }
 
-#Distrito-----
+# Distrito-----
 table(datosfilt$Comuna) #hago esto para visualizar el nombre de las comunas
 
 #Podemos observar que no se encuentra la comuna TIL TIL(8), 
@@ -81,31 +80,28 @@ for(i in 1:length(datosfilt$Comuna)){
   }
 }
 
-
-# Visualizar datos finales -----
+# Visualizar datos finales ------------------------------------------------
 view(datosfilt)
 
-## Grafico con intersección de calles ----
+# Graficos con intersección de calles --------------------------------------
 grafico_int <- datosfilt %>%
   filter(Atropellos >= 5L & Atropellos <= 7L) %>%
   ggplot() +
   aes(x = interseccion, weight = Atropellos) +
-  geom_bar(fill = "slategray3") +
+  geom_bar(fill = "darkseagreen3") +
   labs(x = "Intersección",
     y = "Cantidad Atropellos",
     title = "Intersección de Calles con Mayor Cantidad de Atropellos",
     subtitle = "Región Metropolitana, Chile - Año 2018") +
   theme_minimal()
 
-
 grafico_int + theme(axis.text.x = element_text(angle = 10, size = 7.5))
 
 
-## Grafico Distritos ----
-
+# Graficos Distritos ------------------------------------------------------
 Grafico_dist <- ggplot(datosfilt) +
   aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")), weight = Atropellos) +
-  geom_bar(fill = "#112446") +
+  geom_bar(fill = "lightblue3") +
   labs(x = "Distritos",
     y = "Cantidad Atropellos",
     title = "Cantidad de Atropellos por Distritos",
@@ -113,15 +109,25 @@ Grafico_dist <- ggplot(datosfilt) +
   theme_minimal()
 Grafico_dist
 
-Grafico_dist_acci <- ggplot(datosfilt) +
+Grafico_dist_acci_leves <- ggplot(datosfilt) +
   aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")),
       weight = Leves) +
-  geom_bar(fill = "#112446") +
+  geom_bar(fill = "lightcyan3") +
   labs(x = "Distritos",
     y = "Cantidad de Accidentes Leves",
     title = "Accidentes Leves por Distritos",
     subtitle = "Región Metropolitana, Chile - Año 2018") +
   theme_minimal()
 
+Grafico_dist_acci_leves
 
-Grafico_dist_acci
+Grafico_dist_acci_graves <- ggplot(datosfilt) +
+  aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")),
+      weight = Graves) +
+  geom_bar(fill = "lightsteelblue3") +
+  labs(x = "Distritos",
+    y = "Cantidad de Accidentes Graves",
+    title = "Accidentes Graves por Distritos",
+    subtitle = "Región Metropolitana, Chile - Año 2018") +
+  theme_minimal()
+Grafico_dist_acci_graves
