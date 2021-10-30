@@ -83,7 +83,68 @@ for(i in 1:length(datosfilt$Comuna)){
 # Visualizar datos finales ------------------------------------------------
 view(datosfilt)
 
-# Graficos con intersección de calles --------------------------------------
+# Gráficos por Comunas -----------------------------------------------------
+Grafico_atropellos <- ggplot(datosfilt) +
+  aes(x = Comuna, weight = Atropellos) +
+  geom_bar(fill = "#112446") +
+  labs(x = "Comunas",
+       y = "Cantidad Atropellos",
+       title = "Cantidad de Atropellos por Comuna",
+       subtitle = "Región Metropolitana, Chile - Año 2018") +
+  coord_flip() +
+  theme_minimal()
+## Cambiar color
+Grafico_atropellos 
+
+Grafico_fallecidos <- ggplot(datosfilt) +
+  aes(x = Comuna, weight = Fallecidos) +
+  geom_bar(fill = "#112446") +
+  labs(x = "Comunas",
+    y = "Fallecidos",
+    title = "Cantidad de Fallecidos por Comuna en RM",
+    subtitle = "Chile - Año 2018") +
+  coord_flip() +
+  theme_minimal() 
+
+Grafico_fallecidos
+# Del grafico anterior podemos observar que las comunas que presentan una mayor
+# cantidad de atropellos son: Puente alto, Maipú, Santiago. 
+
+# Gráficos Distritos ------------------------------------------------------
+Grafico_dist <- ggplot(datosfilt) +
+  aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")), weight = Atropellos) +
+  geom_bar(fill = "lightblue3") +
+  labs(x = "Distritos",
+       y = "Cantidad Atropellos",
+       title = "Cantidad de Atropellos por Distritos",
+       subtitle = "Región Metropolitana, Chile - 2018") +
+  theme_minimal()
+Grafico_dist
+
+Grafico_dist_acci_leves <- ggplot(datosfilt) +
+  aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")),
+      weight = Leves) +
+  geom_bar(fill = "lightcyan3") +
+  labs(x = "Distritos",
+       y = "Cantidad de Accidentes Leves",
+       title = "Accidentes Leves por Distritos",
+       subtitle = "Región Metropolitana, Chile - Año 2018") +
+  theme_minimal()
+
+Grafico_dist_acci_leves
+
+Grafico_dist_acci_graves <- ggplot(datosfilt) +
+  aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")),
+      weight = Graves) +
+  geom_bar(fill = "lightsteelblue3") +
+  labs(x = "Distritos",
+       y = "Cantidad de Accidentes Graves",
+       title = "Accidentes Graves por Distritos",
+       subtitle = "Región Metropolitana, Chile - Año 2018") +
+  theme_minimal()
+Grafico_dist_acci_graves
+
+# Gráficos con intersección de calles --------------------------------------
 grafico_int <- datosfilt %>%
   filter(Atropellos >= 5L & Atropellos <= 7L) %>%
   ggplot() +
@@ -97,37 +158,3 @@ grafico_int <- datosfilt %>%
 
 grafico_int + theme(axis.text.x = element_text(angle = 10, size = 7.5))
 
-
-# Graficos Distritos ------------------------------------------------------
-Grafico_dist <- ggplot(datosfilt) +
-  aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")), weight = Atropellos) +
-  geom_bar(fill = "lightblue3") +
-  labs(x = "Distritos",
-    y = "Cantidad Atropellos",
-    title = "Cantidad de Atropellos por Distritos",
-    subtitle = "Región Metropolitana, Chile - 2018") +
-  theme_minimal()
-Grafico_dist
-
-Grafico_dist_acci_leves <- ggplot(datosfilt) +
-  aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")),
-      weight = Leves) +
-  geom_bar(fill = "lightcyan3") +
-  labs(x = "Distritos",
-    y = "Cantidad de Accidentes Leves",
-    title = "Accidentes Leves por Distritos",
-    subtitle = "Región Metropolitana, Chile - Año 2018") +
-  theme_minimal()
-
-Grafico_dist_acci_leves
-
-Grafico_dist_acci_graves <- ggplot(datosfilt) +
-  aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")),
-      weight = Graves) +
-  geom_bar(fill = "lightsteelblue3") +
-  labs(x = "Distritos",
-    y = "Cantidad de Accidentes Graves",
-    title = "Accidentes Graves por Distritos",
-    subtitle = "Región Metropolitana, Chile - Año 2018") +
-  theme_minimal()
-Grafico_dist_acci_graves
