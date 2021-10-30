@@ -3,8 +3,6 @@ library(ggplot2)
 
 
 # base de datos----
-#datos <- rio::import("base-de-datos/Atropellos%2C_Gran_Santiago%2C_RM_Chile%2C_2018.csv") %>%
-#  tibble()
 ruta = file.choose()
 datos <- rio::import(ruta)
 
@@ -33,25 +31,58 @@ for(i in 1:length(datosfilt$CalleUno)){
   }
 }
 
-#Distrito
+#Distrito-----
+table(datosfilt$Comuna) #hago esto para visualizar el nombre de las comunas
 
-# Distrito 8: Colina; Lampa; Pudahuel; Quilicura; Til Til; Cerrillos;
-#             Estación Central; Maipú. 
+#Podemos observar que no se encuentra la comuna TIL TIL(8), 
+#San José de Maipo(12), alhué(14), Buin(14)
+# Calera de tango (14), Curacaví(14), 
+# El Monte(14) ; Isla de Maipo(14); María Pinto(14); Melipilla; 
+# Paine(14), Peñaflor; San Pedro; Talagante
 
-# Distrito 9 : Conchalí; Huechuraba; Renca; Cerro Navia; Lo Prado;
-#             Quinta Normal; Independencia; Recoleta.
+# Info distritos: https://www.bcn.cl/siit/divisionelectoral/divisionelectoral
+  
+Distrito_8 = c("CERRILLOS", "COLINA", "ESTACION CENTRAL", "LAMPA",
+               "MAIPU", "PUDAHUEL", "QUILICURA")
+Distrito_9 = c("CERRO NAVIA", "CONCHALI", "HUECHURABA", "INDEPENDENCIA",
+               "LO PRADO", "QUINTA NORMAL", "RECOLETA", "RENCA")
+Distrito_10 = c("LA GRANJA", "MACUL", "NUNOA","PROVIDENCIA", "SAN JOAQUIN",
+                "SANTIAGO")
+Distrito_11 = c("LA REINA", "LAS CONDES","LO BARNECHEA", "PE","VITACURA")
 
-# Distrito 10 : Ñuñoa; Providencia; Santiago; Macul; San Joaquín, La Granja.
+Distrito_12 = c("LA FLORIDA", "LA PINTANA", "PIRQUE", "PUENTE ALTO")
 
-for(i in 1:length(datosfilt)){
-  if(datosfilt$Comuna[i] == "SANTIAGO"){
+Distrito_13 = c("EL BOSQUE", "LA CISTERNA", "LO ESPEJO", "PEDRO AGUIRRE CERDA",
+                "SAN MIGUEL", "SAN RAMON")
+Distrito_14 = c("PADRE HURTADO", "SAN BERNARDO")
+  
+for(i in 1:length(datosfilt$Comuna)){
+  comuna = datosfilt$Comuna[i]
+  if(comuna %in% (Distrito_8)){
+    datosfilt$Distrito[i] = "8"
+  }
+  else if(comuna %in% (Distrito_9)){
+    datosfilt$Distrito[i] = "9"
+  }
+  else if(comuna %in% (Distrito_10)){
     datosfilt$Distrito[i] = "10"
   }
-  else{
-    datosfilt$Distrito[i] = NA
+  else if(comuna %in% (Distrito_11)){
+    datosfilt$Distrito[i] = "11"
+  }
+  else if(comuna %in% (Distrito_12)){
+    datosfilt$Distrito[i] = "12"
+  }
+  else if(comuna %in% (Distrito_13)){
+    datosfilt$Distrito[i] = "13"
+  }
+  else if(comuna %in% (Distrito_14)){
+    datosfilt$Distrito[i] = "14"
   }
 }
 
+
+# Visualizar datos finales -----
 view(datosfilt)
 
 ## Grafico con intersección de calles ----
@@ -68,3 +99,29 @@ grafico_int <- datosfilt %>%
 
 
 grafico_int + theme(axis.text.x = element_text(angle = 10, size = 7.5))
+
+
+## Grafico Distritos ----
+
+Grafico_dist <- ggplot(datosfilt) +
+  aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")), weight = Atropellos) +
+  geom_bar(fill = "#112446") +
+  labs(x = "Distritos",
+    y = "Cantidad Atropellos",
+    title = "Cantidad de Atropellos por Distritos",
+    subtitle = "Región Metropolitana, Chile - 2018") +
+  theme_minimal()
+Grafico_dist
+
+Grafico_dist_acci <- ggplot(datosfilt) +
+  aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")),
+      weight = Leves) +
+  geom_bar(fill = "#112446") +
+  labs(x = "Distritos",
+    y = "Cantidad de Accidentes Leves",
+    title = "Accidentes Leves por Distritos",
+    subtitle = "Región Metropolitana, Chile - Año 2018") +
+  theme_minimal()
+
+
+Grafico_dist_acci
