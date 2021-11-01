@@ -82,6 +82,7 @@ for(i in 1:length(datosfilt$Comuna)){
 
 # Visualizar datos finales ------------------------------------------------
 view(datosfilt)
+save(datosfilt, file = "base-de-datos/datosfilt.Rdata")
 
 # Gráficos por Comunas -----------------------------------------------------
 Grafico_atropellos <- ggplot(datosfilt) +
@@ -98,7 +99,7 @@ Grafico_atropellos
 
 Grafico_fallecidos <- ggplot(datosfilt) +
   aes(x = Comuna, weight = Fallecidos) +
-  geom_bar(fill = "#112446") +
+  geom_bar(stat= "count" , fill = "#112446") +
   labs(x = "Comunas",
     y = "Fallecidos",
     title = "Cantidad de Fallecidos por Comuna en RM",
@@ -112,7 +113,8 @@ Grafico_fallecidos
 
 # Gráficos Distritos ------------------------------------------------------
 Grafico_dist <- ggplot(datosfilt) +
-  aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")), weight = Atropellos) +
+  aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")), 
+      weight = Atropellos) +
   geom_bar(fill = "lightblue3") +
   labs(x = "Distritos",
        y = "Cantidad Atropellos",
@@ -157,4 +159,5 @@ grafico_int <- datosfilt %>%
   theme_minimal()
 
 grafico_int + theme(axis.text.x = element_text(angle = 10, size = 7.5))
+
 
