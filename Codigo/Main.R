@@ -156,7 +156,7 @@ grafico_int <- datosfilt %>%
     y = "Cantidad Atropellos",
     title = "Intersección de Calles con Mayor Cantidad de Atropellos",
     subtitle = "Región Metropolitana, Chile - Año 2018") +
-  theme_minimal()
+  theme_minimal() 
 
 grafico_int + theme(axis.text.x = element_text(angle = 10, size = 7.5))
 
