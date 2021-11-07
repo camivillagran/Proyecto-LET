@@ -14,7 +14,13 @@ datosfilt <- datos %>%
   select(-Ano ,-X, -Y, -FID, -lat, -lng, -Cod_Comuna, -Cod_Region, -Region,
          -Cod_TipoAc, -TipoAccide, -Cod_Zona) %>%
   mutate(interseccion = NA) %>%
-  mutate(Distrito = NA) # Distritos a los que pertenece cada comuna
+  mutate(Distrito = NA) # Distritos a los que pertenece cada comuna 
+
+for (i in 1:length(datosfilt$Comuna)){
+  if( datosfilt$Comuna[i] == "PE"){
+    datosfilt$Comuna[i] = "PENALOLEN"
+  }
+}
 
 #Interseccion
 for(i in 1:length(datosfilt$CalleUno)){
@@ -47,7 +53,7 @@ Distrito_9 = c("CERRO NAVIA", "CONCHALI", "HUECHURABA", "INDEPENDENCIA",
                "LO PRADO", "QUINTA NORMAL", "RECOLETA", "RENCA")
 Distrito_10 = c("LA GRANJA", "MACUL", "NUNOA","PROVIDENCIA", "SAN JOAQUIN",
                 "SANTIAGO")
-Distrito_11 = c("LA REINA", "LAS CONDES","LO BARNECHEA", "PE","VITACURA")
+Distrito_11 = c("LA REINA", "LAS CONDES","LO BARNECHEA", "PENALOLEN","VITACURA")
 
 Distrito_12 = c("LA FLORIDA", "LA PINTANA", "PIRQUE", "PUENTE ALTO")
 
@@ -85,8 +91,39 @@ view(datosfilt)
 save(datosfilt, file = "base-de-datos/datosfilt.Rdata")
 
 # Gráficos por Comunas -----------------------------------------------------
+cont = plyr::count(datosfilt$Comuna)$x
+tabl_comunas = c()
+
+for (com in cont){
+  tabl_comunas = rbind(tabl_comunas, c(com,0))
+}
+tabl_comunas = as.data.frame(tabl_comunas)
+colnames(tabl_comunas) = c("x", "freq")
+
+for (i in 1:length(datosfilt$Comuna)){
+  pos = which(datosfilt$Comuna[i] == tabl_comunas$x)
+  tabl_comunas$freq[pos] = as.numeric(tabl_comunas$freq[pos]) + datosfilt$Atropellos[i]
+}
+
+cont = sort(as.numeric(tabl_comunas$freq))
+comunas = c()
+
+for (j in cont) {
+  pos = which(j == as.numeric(tabl_comunas$freq))
+  if(length(pos) > 1){
+    for(i in pos) {
+      if(!(tabl_comunas$x[i] %in% comunas)){
+        comunas = c(comunas, tabl_comunas$x[i]) 
+      }
+    }
+  }
+  else{
+    comunas = c(comunas, tabl_comunas$x[pos]) 
+  }
+}
+
 Grafico_atropellos <- ggplot(datosfilt) +
-  aes(x = Comuna, weight = Atropellos) +
+  aes(x = factor(Comuna, levels = comunas), weight = Atropellos) +
   geom_bar(fill = "#112446") +
   labs(x = "Comunas",
        y = "Cantidad Atropellos",
@@ -97,8 +134,39 @@ Grafico_atropellos <- ggplot(datosfilt) +
 ## Cambiar color
 Grafico_atropellos 
 
+################### Gráfico Accidentes Fallecidos
+cont = plyr::count(datosfilt$Comuna)$x
+tabl_comunas = c()
+
+for (com in cont){
+  tabl_comunas = rbind(tabl_comunas, c(com,0))
+}
+tabl_comunas = as.data.frame(tabl_comunas)
+colnames(tabl_comunas) = c("x", "freq")
+
+for (i in 1:length(datosfilt$Comuna)){
+  pos = which(datosfilt$Comuna[i] == tabl_comunas$x)
+  tabl_comunas$freq[pos] = as.numeric(tabl_comunas$freq[pos]) + datosfilt$Fallecidos[i]
+}
+
+cont = sort(as.numeric(tabl_comunas$freq))
+comunas = c()
+
+for (j in cont) {
+  pos = which(j == as.numeric(tabl_comunas$freq))
+  if(length(pos) > 1){
+    for(i in pos) {
+      if(!(tabl_comunas$x[i] %in% comunas)){
+        comunas = c(comunas, tabl_comunas$x[i]) 
+      }
+    }
+  }
+  else{
+    comunas = c(comunas, tabl_comunas$x[pos]) 
+  }
+}
 Grafico_fallecidos <- ggplot(datosfilt) +
-  aes(x = Comuna, weight = Fallecidos) +
+  aes(x = factor(Comuna, levels = comunas), weight = Fallecidos) +
   geom_bar(stat= "count" , fill = "#112446") +
   labs(x = "Comunas",
     y = "Fallecidos",
