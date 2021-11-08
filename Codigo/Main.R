@@ -1,9 +1,11 @@
 require(tidyverse)
 library(ggplot2)
 
+
 # base de datos----
-ruta = file.choose()
-datos <- rio::import(ruta)
+
+
+datos <- rio::import("base-de-datos/Atropellos%2C_Gran_Santiago%2C_RM_Chile%2C_2018..csv")
 
 names(datos)
 #Al mirar los nombre de las variables, podemos ver que las hay variables
@@ -87,8 +89,8 @@ for(i in 1:length(datosfilt$Comuna)){
 }
 
 # Visualizar datos finales ------------------------------------------------
-view(datosfilt)
-save(datosfilt, file = "base-de-datos/datosfilt.Rdata")
+#Proyecto Let/Proyecto-LET
+#save(datosfilt, file = "base-de-datos/datosfilt.Rdata")
 
 # Gráficos por Comunas -----------------------------------------------------
 cont = plyr::count(datosfilt$Comuna)$x
@@ -106,25 +108,25 @@ for (i in 1:length(datosfilt$Comuna)){
 }
 
 cont = sort(as.numeric(tabl_comunas$freq))
-comunas = c()
+comunas_a = c()
 
 for (j in cont) {
   pos = which(j == as.numeric(tabl_comunas$freq))
   if(length(pos) > 1){
     for(i in pos) {
-      if(!(tabl_comunas$x[i] %in% comunas)){
-        comunas = c(comunas, tabl_comunas$x[i]) 
+      if(!(tabl_comunas$x[i] %in% comunas_a)){
+        comunas_a  = c(comunas_a, tabl_comunas$x[i]) 
       }
     }
   }
   else{
-    comunas = c(comunas, tabl_comunas$x[pos]) 
+    comunas_a = c(comunas_a, tabl_comunas$x[pos]) 
   }
 }
 
 Grafico_atropellos <- ggplot(datosfilt) +
-  aes(x = factor(Comuna, levels = comunas), weight = Atropellos) +
-  geom_bar(fill = "#112446") +
+  aes(x = factor(Comuna, levels = comunas_a), weight = Atropellos) +
+  geom_bar(fill = "#006466") +
   labs(x = "Comunas",
        y = "Cantidad Atropellos",
        title = "Cantidad de Atropellos por Comuna",
@@ -150,24 +152,24 @@ for (i in 1:length(datosfilt$Comuna)){
 }
 
 cont = sort(as.numeric(tabl_comunas$freq))
-comunas = c()
+comunas_f = c()
 
 for (j in cont) {
   pos = which(j == as.numeric(tabl_comunas$freq))
   if(length(pos) > 1){
     for(i in pos) {
-      if(!(tabl_comunas$x[i] %in% comunas)){
-        comunas = c(comunas, tabl_comunas$x[i]) 
+      if(!(tabl_comunas$x[i] %in% comunas_f)){
+        comunas_f = c(comunas_f, tabl_comunas$x[i]) 
       }
     }
   }
   else{
-    comunas = c(comunas, tabl_comunas$x[pos]) 
+    comunas_f = c(comunas_f, tabl_comunas$x[pos]) 
   }
 }
 Grafico_fallecidos <- ggplot(datosfilt) +
-  aes(x = factor(Comuna, levels = comunas), weight = Fallecidos) +
-  geom_bar(stat= "count" , fill = "#112446") +
+  aes(x = factor(Comuna, levels = comunas_f), weight = Fallecidos) +
+  geom_bar(stat= "count" , fill = "#065a60") +
   labs(x = "Comunas",
     y = "Fallecidos",
     title = "Cantidad de Fallecidos por Comuna en RM",
@@ -191,6 +193,7 @@ Grafico_dist <- ggplot(datosfilt) +
   theme_minimal()
 Grafico_dist
 
+
 Grafico_dist_acci_leves <- ggplot(datosfilt) +
   aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")),
       weight = Leves) +
@@ -201,7 +204,6 @@ Grafico_dist_acci_leves <- ggplot(datosfilt) +
        subtitle = "Región Metropolitana, Chile - Año 2018") +
   theme_minimal()
 
-Grafico_dist_acci_leves
 
 Grafico_dist_acci_graves <- ggplot(datosfilt) +
   aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")),
@@ -212,6 +214,9 @@ Grafico_dist_acci_graves <- ggplot(datosfilt) +
        title = "Accidentes Graves por Distritos",
        subtitle = "Región Metropolitana, Chile - Año 2018") +
   theme_minimal()
+
+par(mfrow = c(1,2))
+Grafico_dist_acci_leves
 Grafico_dist_acci_graves
 
 # Gráficos con intersección de calles --------------------------------------

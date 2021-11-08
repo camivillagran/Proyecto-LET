@@ -1,0 +1,58 @@
+---
+title: "Gráfico con texto explicativo"
+author: "Camila Villagrán"
+date: "07-11-2021"
+output: html_document
+---
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+setwd("..")
+
+source(here::here("Codigo/Main.R"), local = knitr::knit_global(), 
+       encoding = "UTF-8")
+
+```
+
+A través de nuestro análisis estadístico, podemos visualizar desde distintas perspectivas los siniestros de transito, ocurridos en distintas comunas de la Región Metropolitana en Chile en el año 2018. Primeramente analizamos los datos, respecto a cada comuna, para esto, nos interesa ver la cantidad de atropellos que ocurrieron por cada una,y poder observar cuales son las 3 comuna que presentan mayor cantidad de atropellos y cuales son las 3 que presentan menor o que no tienen ninguna en caso de ser posible. Lo cual podemos visualizar en el siguiente gráfico:
+
+```{r}
+Grafico_atropellos
+```
+
+De esté gráfico podemos concluir, que las 3 comunas que poseen mayor cantidad de atropellos son: Puente Alto, Maipú y Santiago. Mientras que las que tienen una menor cantidad son: Pirque, Lampa y Lo espejo.
+
+Otra variable de interés, respecto a las comunas, es saber la cantidad de fallecidos productos de los siniestros de transito ocurridos respecto a cada una de ellas. Tal como se observa en siguiente imagen:
+
+```{r}
+Grafico_fallecidos
+```
+
+Según lo observado, podemos notar que las comunas que poseen mayor cantidad de fallecidos son: Maipú, Santiago y La florida. Además, podemos observar que existen varias comunas sin ningún fallecido.
+
+Ahora, si dividimos las comunas, respecto a sus distritos correspondientes, cuya información fue sacada de: <https://www.bcn.cl/siit/divisionelectoral/divisionelectoral>.
+
+Los distritos y sus respectivas comunas son:
+
+-   Distrito 8: Cerrillos, Colina, Estación Central, Lampa, Maipú, Pudahuel, Quilicura, Tiltil.
+
+-   Distrito 9: Cerro Navia, Conchalí, Huechuraba, Independencia, Lo Prado, Quita Normal, Recoleta, Renca. Distrito 10: La Granja, Macul, Ñuñoa, Providencia, San Joaquín, Santiago.
+
+-   Distrito 11: La Reina, Las Condes, Lo Barnechea, Peñalolén, Vitacura.
+
+-   Distrito 12: La Florida, La Pintana, Pirque, Puente Alto, San José de Maipo.
+
+-   Distrito 13: El Bosque, La Cisterna, Lo Espejo, Pedro Aguirre Cerda, San Miguel, San Ramón.
+
+-   Distrito 14: Alhué, Buin, Calera de Tango, Curacaví, El Monte, Isla de Maipu, María Pinto, Melipilla, Padre Hurtado, Paine, Peñaflor, San Bernardo, San Pedro, Talagante.
+
+Al unir esta información, con la base de datos, obtuvimos que hay comunas que no son consideradas, las cuales son: Tiltil, San José de Maipo, Alhué, Buin, Calera de tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Melipilla, Paine, Peñaflor, San Pedro, Talagante. Las cuales, en su mayoría son del distrito 14.
+
+Para observar los distritos, respecto a los atropellos, analizaremos el siguiente gráfico de barras:
+
+```{r}
+Grafico_dist
+```
+
+Obtuvimos que el distrito que contiene mayor cantidad de atropellos en la Región Metropolitana es el 10, mientras que el que tiene menos, es el distrito 14.
+
+Próximamente se irá actualizando esté R Markdown.
