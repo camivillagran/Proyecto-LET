@@ -13,7 +13,7 @@ source(here::here("Codigo/Main.R"), local = knitr::knit_global(),
 
 ```
 
-A través de nuestro análisis estadístico, podemos visualizar desde distintas perspectivas los siniestros de transito, ocurridos en distintas comunas de la Región Metropolitana en Chile en el año 2018. Primeramente analizamos los datos, respecto a cada comuna, para esto, nos interesa ver la cantidad de atropellos que ocurrieron por cada una,y poder observar cuales son las 3 comuna que presentan mayor cantidad de atropellos y cuales son las 3 que presentan menor o que no tienen ninguna en caso de ser posible. Lo cual podemos visualizar en el siguiente gráfico:
+A través de nuestro análisis estadístico, podemos visualizar desde diferentes perspectivas los siniestros de tránsito, ocurridos las comunas de la Región Metropolitana en Chile durante el año 2018. En primer lugar, analizaremos los datos para cada comuna. En particular, nos interesa determinar la cantidad de atropellos que ocurrieron en cada comuna e identificar cuales son las tres que presentan mayor cantidad de atropellos y cuales las tres que presentan menor cantidad o ninguna. Lo anterior, puede visualizarse en el siguiente gráfico:
 
 ```{r}
 Grafico_atropellos
@@ -21,7 +21,7 @@ Grafico_atropellos
 
 De esté gráfico podemos concluir, que las 3 comunas que poseen mayor cantidad de atropellos son: Puente Alto, Maipú y Santiago. Mientras que las que tienen una menor cantidad son: Pirque, Lampa y Lo espejo.
 
-Otra variable de interés, respecto a las comunas, es saber la cantidad de fallecidos productos de los siniestros de transito ocurridos respecto a cada una de ellas. Tal como se observa en siguiente imagen:
+Otra variable de interés, respecto a las comunas, es saber la cantidad de fallecidos productos de los siniestros de transito ocurridos en  cada una de ellas. Esto puede observarse en la siguiente imagen:
 
 ```{r}
 Grafico_fallecidos
@@ -29,7 +29,7 @@ Grafico_fallecidos
 
 Según lo observado, podemos notar que las comunas que poseen mayor cantidad de fallecidos son: Maipú, Santiago y La florida. Además, podemos observar que existen varias comunas sin ningún fallecido.
 
-Ahora, si dividimos las comunas, respecto a sus distritos correspondientes, cuya información fue sacada de: <https://www.bcn.cl/siit/divisionelectoral/divisionelectoral>.
+Ahora, si agrupamos las comunas, respecto a sus distritos correspondientes, cuya información fue sacada de: <https://www.bcn.cl/siit/divisionelectoral/divisionelectoral>.
 
 Los distritos y sus respectivas comunas son:
 
@@ -45,7 +45,7 @@ Los distritos y sus respectivas comunas son:
 
 -   Distrito 14: Alhué, Buin, Calera de Tango, Curacaví, El Monte, Isla de Maipu, María Pinto, Melipilla, Padre Hurtado, Paine, Peñaflor, San Bernardo, San Pedro, Talagante.
 
-Al unir esta información, con la base de datos, obtuvimos que hay comunas que no son consideradas, las cuales son: Tiltil, San José de Maipo, Alhué, Buin, Calera de tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Melipilla, Paine, Peñaflor, San Pedro, Talagante. Las cuales, en su mayoría son del distrito 14.
+Al unir esta información, con la base de datos, obtuvimos que hay comunas que no son consideradas, en esta muestra. Las cuales son: Tiltil, San José de Maipo, Alhué, Buin, Calera de tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Melipilla, Paine, Peñaflor, San Pedro, Talagante. Podemos notar que, en su mayoría son del distrito 14.
 
 Para observar los distritos, respecto a los atropellos, analizaremos el siguiente gráfico de barras:
 
@@ -55,4 +55,9 @@ Grafico_dist
 
 Obtuvimos que el distrito que contiene mayor cantidad de atropellos en la Región Metropolitana es el 10, mientras que el que tiene menos, es el distrito 14.
 
-Próximamente se irá actualizando esté R Markdown.
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+```{r}
+grafico_int + theme(axis.text.x = element_text(angle = 10, size = 7.5))
+
+```
+
