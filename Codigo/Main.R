@@ -2,8 +2,6 @@ require(tidyverse)
 library(ggplot2)
 
 # base de datos----
-
-
 datos <- rio::import("base-de-datos/Atropellos%2C_Gran_Santiago%2C_RM_Chile%2C_2018..csv")
 
 names(datos)
@@ -177,8 +175,6 @@ Grafico_fallecidos <- ggplot(datosfilt) +
   theme_minimal() 
 
 Grafico_fallecidos
-# Del grafico anterior podemos observar que las comunas que presentan una mayor
-# cantidad de atropellos son: Puente alto, Maipú, Santiago. 
 
 # Gráficos Distritos ------------------------------------------------------
 Grafico_dist <- ggplot(datosfilt) +
@@ -214,7 +210,6 @@ Grafico_dist_acci_graves <- ggplot(datosfilt) +
        subtitle = "Región Metropolitana, Chile - Año 2018") +
   theme_minimal()
 
-par(mfrow = c(1,2))
 Grafico_dist_acci_leves
 Grafico_dist_acci_graves
 
@@ -231,5 +226,3 @@ grafico_int <- datosfilt %>%
   theme_minimal() 
 
 grafico_int + theme(axis.text.x = element_text(angle = 10, size = 7.5))
-
-
