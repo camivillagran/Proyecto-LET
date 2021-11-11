@@ -1,7 +1,6 @@
 require(tidyverse)
 library(ggplot2)
 
-
 # base de datos----
 
 
@@ -62,7 +61,7 @@ Distrito_12 = c("LA FLORIDA", "LA PINTANA", "PIRQUE", "PUENTE ALTO")
 Distrito_13 = c("EL BOSQUE", "LA CISTERNA", "LO ESPEJO", "PEDRO AGUIRRE CERDA",
                 "SAN MIGUEL", "SAN RAMON")
 Distrito_14 = c("PADRE HURTADO", "SAN BERNARDO")
-  
+
 for(i in 1:length(datosfilt$Comuna)){
   comuna = datosfilt$Comuna[i]
   if(comuna %in% (Distrito_8)){
