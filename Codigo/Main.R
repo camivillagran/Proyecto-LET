@@ -1,6 +1,6 @@
 require(tidyverse)
 library(ggplot2)
-
+require(patchwork)
 # base de datos----
 datos <- rio::import("base-de-datos/Atropellos%2C_Gran_Santiago%2C_RM_Chile%2C_2018..csv")
 
@@ -210,8 +210,7 @@ Grafico_dist_acci_graves <- ggplot(datosfilt) +
        subtitle = "Región Metropolitana, Chile - Año 2018") +
   theme_minimal()
 
-Grafico_dist_acci_leves
-Grafico_dist_acci_graves
+Grafico_dist_acci_leves + Grafico_dist_acci_graves
 
 # Gráficos con intersección de calles --------------------------------------
 grafico_int <- datosfilt %>%
