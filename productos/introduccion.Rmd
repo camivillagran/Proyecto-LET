@@ -5,22 +5,23 @@ date: "14-10-2021"
 output: html_document
 ---
 
-En los últimos años, hemos podido evidenciar el aumento de vehículos como medio de transporte. Hoy en día, tener un auto, se ha vuelto algo común, cómodo y esencial para muchos. Esto se debe a que nos permiten ir de un lugar a otro, de manera más rápida, eficaz y lo más importante es que nos ahorran tiempo.
+En los últimos años, hemos podido evidenciar el aumento de vehículos como medio de transporte. 
+Según el informe de mercado automotor, publicado por la Asociación Nacional Automotriz de Chile (ANAC)
 
-Si bien tener un vehículo, trae muchos beneficios, estos también son los causantes de muchos accidentes. Es por esto, que, a través de este informe, realizaremos un análisis estadístico a una base de datos, la cual contiene siniestros de tránsito en la Región Metropolitana en Chile, durante el año 2018. Esta fue obtenida de la Comisión Nacional de Seguridad de Tránsito (CONASET).
+Hoy en día, tener un auto se ha vuelto algo común, cómodo y esencial para muchos. Esto se debe a que nos permiten ir de un lugar a otro, de manera más rápida, eficaz y lo más importante es que nos ahorran tiempo.
+
+Si bien tener un vehículo, trae muchos beneficios, estos también son los causantes de muchos accidentes. Es por esto, que, a través de este informe, realizaremos un análisis estadístico a una base de datos, la que contiene siniestros de tránsito en la Región Metropolitana en Chile, durante el año 2018. Esta fue obtenida de la Comisión Nacional de Seguridad de Tránsito (CONASET).
 
 Para este análisis estadístico, tenemos como objetivo poder responder a las siguientes preguntas:
 
-1)  ¿Cuáles son las 3 comunas en donde se registran la mayor cantidad de atropellos en la Región Metropolitana?
+1)  ¿Cuáles son las tres comunas en donde se registran la mayor cantidad de atropellos en la Región Metropolitana?
 
-2)  ¿Cuáles son las 3 comunas en donde se registran la menor cantidad de atropellos en la Región Metropolitana?
+2)  ¿Cuáles son las comunas que presentan la mayor cantidad de fallecidos en la Región Metropolitana?
 
-3)  Dentro de las 3 comunas que presentan la mayor cantidad de atropellos, ¿Cuántos fallecidos hay en promedio?
+3)  Dividiendo la Región Metropolitana por distritos, ¿Cual distrito es el que presenta la mayor y menor cantidad de accidentes leves?
 
-4)  Dividiendo la Región Metropolitana por distritos, ¿Cual distrito es el que presenta la mayor y menor cantidad de accidentes leves?
+4)  ¿Qué intersección de calle, posee la mayor cantidad de accidentes?
 
-5)  ¿Cuáles comunas presentan la mayor cantidad de fallecidos?
-
-6)  ¿Qué intersección de calle, posee la mayor cantidad de accidentes?
+5)  Dentro de las 3 comunas que presentan la mayor cantidad de atropellos, ¿Cuántos fallecidos hay en promedio? 
 
 Para poder responder estas preguntas, para iniciar debemos realizar una limpieza a la base de datos, debido a que hay variables que no son de nuestro interés, y así poder definir lo que representa cada variable, para una mejor comprensión para el lector. Luego, se analizarán los datos y se buscarán argumentos para poder responder a estas preguntas en cuestión. Para finalizar, se responderán las preguntas a través de gráficos y otras herramientas, para poder llegar a conclusiones sobre los accidentes de transito en la Región Metropolitana.
