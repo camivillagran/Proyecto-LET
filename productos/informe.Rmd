@@ -25,27 +25,27 @@ Para este informe se usará la siguiente estructura: En primer lugar, se present
 
 ### II. Descripción de los datos
 
-En la base de datos inicial, se nos presenta un total de 1.697 observaciones, correspondiente a los siniestros de tránsito ocurridos en la Región Metropolitana, cabe mencionar que está base de datos, no contiene la cantidad total de los siniestros, sino solamente aquellos que fue posible geocodificar en la zona urbana, que son aproximadamente el 90%. Además, la base de datos contiene variables que no eran de interés para nuestro proyecto, es por eso, que realizaremos una limpieza para quedarnos con aquellas variables que eran significativas, las cuales podemos ver a continuación:
+En la base de datos inicial, se nos presenta un total de 1.697 observaciones, correspondiente a los siniestros de tránsito ocurridos en la Región Metropolitana, cabe mencionar que está base, no contiene la cantidad total de los siniestros, sino solamente aquellos que fue posible geocodificar en la zona urbana, que son aproximadamente el 90%. Además, la base de datos contiene variables que no eran de interés para nuestro proyecto, es por eso, que realizaremos una limpieza para quedarnos con aquellas variables que eran significativas, las cuales podemos ver a continuación:
 
 -   Comuna: Indica a la comuna en donde ocurrió el siniestro.
 
--   Zona: Urbana o Rural.
+-   Zona: Indica si el siniestro ocurrio en una zona Urbana o Rural.
 
--   CalleUno: Calle principal.
+-   CalleUno: Calle principal del siniestro.
 
--   CalleDos: Calle secundaria.
+-   CalleDos: Calle secundaria del siniestro, en caso de haber ocurrido en una intersección.
 
 -   Numero: Indica el número en donde ocurrió el siniestro, puede ser 0.
 
 -   Fallecidos: Indica la cantidad de fallecidos ocurridos en el siniestro.
 
--   Graves: Lesionados en estado grave.
+-   Graves: Accidente grave.
 
--   Menos_Grav:
+-   Menos_Grav: Accidente menos graves.
 
--   Leves:
+-   Leves: Accidentes leves.
 
--   Atropellos:
+-   Atropellos: Indica el número de atropellos por siniestro.
 
 Al mismo tiempo, se agregaron dos variables:
 
@@ -55,7 +55,7 @@ Al mismo tiempo, se agregaron dos variables:
 
 Para indicar a que distrito correspondía cada comuna, sacamos la información de: <https://www.bcn.cl/siit/divisionelectoral/divisionelectoral>.
 
-De esta pagina, obtuvimos que:
+De la página anterior, obtuvimos que (Debo colocarlo en tabla) :
 
 -   Distrito 8: Cerrillos, Colina, Estación Central, Lampa, Maipú, Pudahuel, Quilicura, Tiltil.
 
@@ -69,7 +69,9 @@ De esta pagina, obtuvimos que:
 
 -   Distrito 14: Alhué, Buin, Calera de Tango, Curacaví, El Monte, Isla de Maipu, María Pinto, Melipilla, Padre Hurtado, Paine, Peñaflor, San Bernardo, San Pedro, Talagante.
 
-En función de estos datos, se pretende responder las siguientes preguntas:
+Al unir esta información, con la base de datos, obtuvimos que hay comunas que no son consideradas, en esta muestra. Las cuáles son: Tiltil, San José de Maipo, Alhué, Buin, Calera de tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Melipilla, Paine, Peñaflor, San Pedro, Talagante. Podemos notar que, en su mayoría son del distrito 14. Esto se debe, a que como fue mencionado anteriormente, la base de datos contiene la información de aquellas comunas que, si lograron ser geocodifadas, dejando afuera comunas más rurales, como lo son en su mayoría las del distrito 14.
+
+En función de lo presentado anteriormente, se pretende responder las siguientes preguntas:
 
 1)  ¿Cuáles son las tres comunas en donde se registran la mayor cantidad de atropellos en la Región Metropolitana?
 
@@ -82,6 +84,22 @@ En función de estos datos, se pretende responder las siguientes preguntas:
 5)  Dentro de las 3 comunas que presentan la mayor cantidad de atropellos, ¿Cuántos fallecidos hay en promedio?
 
 ### III. Resultados
+A través de nuestro análisis estadístico, podemos visualizar desde diferentes perspectivas los siniestros de tránsito, ocurridos las comunas de la Región Metropolitana en Chile durante el año 2018. En primer lugar, analizaremos los datos para cada comuna. En particular, nos interesa determinar la cantidad de atropellos que ocurrieron en cada comuna e identificar cuáles son las tres que presentan mayor cantidad de atropellos y cuáles las tres que presentan menor cantidad o ninguna. Lo anterior, puede visualizarse en el siguiente gráfico:
+```{r}
+Grafico_atropellos
+```
+
+De esté gráfico podemos concluir, que las tres comunas que poseen mayor cantidad de atropellos son: Puente Alto, Maipú y Santiago. Mientras que las que tienen una menor cantidad son: Pirque, Lampa y Lo espejo.
+
+Otra información de interés, respecto a las comunas, es saber la cantidad de fallecidos productos de los siniestros de transito ocurridos en  cada una de ellas. Esto puede observarse en la siguiente imagen:
+```{r}
+Grafico_fallecidos
+```
+
+Según lo observado, podemos notar que las comunas que poseen mayor cantidad de fallecidos son: Maipú, Santiago y La florida. Además, podemos notar que existen varias comunas sin ningún fallecido.
+
+
+
 
 ### IV. Conclusión
 
