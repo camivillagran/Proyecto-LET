@@ -11,23 +11,3 @@ Si bien tener un vehículo, trae muchos beneficios, especialmente en estos tiemp
 Es por esto, que, a través de este informe, realizaremos un análisis estadístico a una base de datos, la que contiene siniestros de tránsito en la Región Metropolitana en Chile, durante el año 2018. Esta fue obtenida de la CONASET, para así poder dar a conocer aquellas comunas en donde se presentan una mayor y menor cantidad de siniestros, fallecidos, etc. A su vez, poder agrupar las comunas respecto a sus distritos correspondientes y así sacan inferencia de esta información.
 
 Este informe se dividirá en tres partes. En primer lugar, se presentarán los datos a analizar, explicando sus variables y características. En la segunda parte, se entregarán los resultados de nuestra investigación. Además, se hará una inferencia de estos resultados, para así poder entregar una conclusión de lo observado, respecto a los siniestros ocurridos en la Región Metropolitana, cuya conclusión será presentada en la última parte.
-
-
-
-
-
-
-
-Para este análisis estadístico, tenemos como objetivo poder responder a las siguientes preguntas:
-
-1)  ¿Cuáles son las tres comunas en donde se registran la mayor cantidad de atropellos en la Región Metropolitana?
-
-2)  ¿Cuáles son las comunas que presentan la mayor cantidad de fallecidos en la Región Metropolitana?
-
-3)  Dividiendo la Región Metropolitana por distritos, ¿Cual distrito es el que presenta la mayor y menor cantidad de accidentes leves?
-
-4)  ¿Qué intersección de calle, posee la mayor cantidad de accidentes?
-
-5)  Dentro de las 3 comunas que presentan la mayor cantidad de atropellos, ¿Cuántos fallecidos hay en promedio? 
-
-Para poder responder estas preguntas, para iniciar debemos realizar una limpieza a la base de datos, debido a que hay variables que no son de nuestro interés, y así poder definir lo que representa cada variable, para una mejor comprensión para el lector. Luego, se analizarán los datos y se buscarán argumentos para poder responder a estas preguntas en cuestión. Para finalizar, se responderán las preguntas a través de gráficos y otras herramientas, para poder llegar a conclusiones sobre los accidentes de transito en la Región Metropolitana.
