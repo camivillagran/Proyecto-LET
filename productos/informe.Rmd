@@ -14,7 +14,7 @@ source(here::here("Codigo/Main.R"), local = knitr::knit_global(),
 
 ```
 
-### I. Introducción
+## I. Introducción
 
 En los últimos años, hemos podido evidenciar el aumento de vehículos como medio de transporte. Según la Asociación Nacional Automotriz de Chile (ANAC), al finalizar octubre del 2021, el mercado de vehículos livianos y medianos finalizo con la venta de 38.551 unidades nuevas y un crecimiento de 6.4% en comparación a octubre del 2020. Siendo octubre de este año, el de mayores ventas desde que se tiene registro de estos datos. Hoy en día, tener un auto se ha vuelto algo común, cómodo y esencial para muchos. Esto se debe a que nos permiten ir de un lugar a otro, de manera más rápida, eficaz y lo más importante es que nos ahorran tiempo.
 
@@ -24,7 +24,7 @@ Es por esto, que, a través de este informe, realizaremos un análisis estadíst
 
 Para este informe se usará la siguiente estructura: En primer lugar, se presentarán los datos a analizar, explicando sus variables y características. En la segunda parte, se entregarán los resultados de nuestra investigación. Además, se hará una inferencia de estos resultados, para así poder entregar una conclusión de lo observado, respecto a los siniestros ocurridos en la Región Metropolitana, cuya conclusión será presentada en la última parte.
 
-### II. Descripción de los datos
+## II. Descripción de los datos
 
 En la base de datos inicial, se nos presenta un total de 1.697 observaciones, correspondiente a los siniestros de tránsito ocurridos en la Región Metropolitana, cabe mencionar que está base, no contiene la cantidad total de los siniestros, sino solamente aquellos que fue posible geocodificar en la zona urbana, que son aproximadamente el 90%. Además, la base de datos contiene variables que no eran de interés para nuestro proyecto, es por eso, que realizaremos una limpieza para quedarnos con aquellas variables que eran significativas, las cuales podemos ver a continuación:
 
@@ -84,7 +84,7 @@ En función de lo presentado anteriormente, se pretende responder las siguientes
 
 5)  Dentro de las 3 comunas que presentan la mayor cantidad de atropellos, ¿Cuántos fallecidos hay en promedio?
 
-### III. Resultados
+## III. Resultados
 A través de nuestro análisis estadístico, podemos visualizar desde diferentes perspectivas los siniestros de tránsito, ocurridos las comunas de la Región Metropolitana en Chile durante el año 2018. En primer lugar, analizaremos los datos para cada comuna. En particular, nos interesa determinar la cantidad de atropellos que ocurrieron en cada comuna e identificar cuáles son las tres que presentan mayor cantidad de atropellos y cuáles las tres que presentan menor cantidad o ninguna. Lo anterior, puede visualizarse en el siguiente gráfico:
 ```{r}
 Grafico_atropellos
@@ -106,9 +106,9 @@ g1 /
   (g2 |g3)
 ```
 
-### IV. Conclusión
+## IV. Conclusión
 
-### V. Referencias
+## V. Referencias
 
 <https://www.anac.cl/wp-content/uploads/2021/11/10-ANAC-Mercado-Automotor-Octubre-2021.pdf>
 
