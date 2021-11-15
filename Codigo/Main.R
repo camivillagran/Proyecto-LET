@@ -11,7 +11,7 @@ names(datos)
 #Eliminaremos columnas que no son útiles, ya que es información que se repite
 datosfilt <- datos %>%
   select(-Ano ,-X, -Y, -FID, -lat, -lng, -Cod_Comuna, -Cod_Region, -Region,
-         -Cod_TipoAc, -TipoAccide, -Cod_Zona) %>%
+         -Cod_TipoAc, -TipoAccide, -Cod_Zona, -PistasdeId, -PistasdeRe) %>%
   mutate(interseccion = NA) %>%
   mutate(Distrito = NA) # Distritos a los que pertenece cada comuna 
 
