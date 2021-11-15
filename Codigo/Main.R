@@ -217,11 +217,11 @@ grafico_int <- datosfilt %>%
   filter(Atropellos >= 5L & Atropellos <= 7L) %>%
   ggplot() +
   aes(x = interseccion, weight = Atropellos) +
-  geom_bar(fill = "darkseagreen3") +
+  geom_bar(fill = "#87986a") +
   labs(x = "Intersección",
     y = "Cantidad Atropellos",
     title = "Intersección de Calles con Mayor Cantidad de Atropellos",
     subtitle = "Región Metropolitana, Chile - Año 2018") +
   theme_minimal() 
-
+#darkseagreen3
 grafico_int + theme(axis.text.x = element_text(angle = 10, size = 7.5))
