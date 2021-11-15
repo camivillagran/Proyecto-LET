@@ -12,27 +12,83 @@ source(here::here("Codigo/Main.R"), local = knitr::knit_global(),
        encoding = "UTF-8")
 
 ```
-#### I. Introducción
-En los últimos años, hemos podido evidenciar el aumento de vehículos como medio de transporte. Según la Asociación Nacional Automotriz de Chile (ANAC), al finalizar octubre del 2021, el mercado de vehículos livianos y medianos finalizo con la venta de 38.551 unidades nuevas y un crecimiento de 6.4% en comparación a octubre del 2020. Siendo octubre de este año, el de mayores ventas desde que se tiene registro de estos datos. Hoy en día, tener un auto se ha vuelto algo común, cómodo y esencial para muchos. Esto se debe a que nos permiten ir de un lugar a otro, de manera más rápida, eficaz y lo más importante es que nos ahorran tiempo. 
+
+### I. Introducción
+
+En los últimos años, hemos podido evidenciar el aumento de vehículos como medio de transporte. Según la Asociación Nacional Automotriz de Chile (ANAC), al finalizar octubre del 2021, el mercado de vehículos livianos y medianos finalizo con la venta de 38.551 unidades nuevas y un crecimiento de 6.4% en comparación a octubre del 2020. Siendo octubre de este año, el de mayores ventas desde que se tiene registro de estos datos. Hoy en día, tener un auto se ha vuelto algo común, cómodo y esencial para muchos. Esto se debe a que nos permiten ir de un lugar a otro, de manera más rápida, eficaz y lo más importante es que nos ahorran tiempo.
 
 Si bien tener un vehículo, trae muchos beneficios, especialmente en estos tiempos de pandemia, debido a que son una herramienta para evitar contagios. Al mismo tiempo, estos son los causantes de muchos accidentes. Según el informe elaborado por la Comisión Nacional de Seguridad de Tránsito (CONASET), durante el año 2020, se registraron un total de 64.707 siniestros de tránsito a lo largo de todo el país, siendo la región Metropolitana la que presentó más siniestro, obteniendo una cifra de 19.047.
 
 Es por esto, que, a través de este informe, realizaremos un análisis estadístico a una base de datos, la que contiene siniestros de tránsito en la Región Metropolitana en Chile, durante el año 2018. Esta fue obtenida de la CONASET, para así poder dar a conocer aquellas comunas en donde se presentan una mayor y menor cantidad de siniestros, fallecidos, etc. A su vez, poder agrupar las comunas respecto a sus distritos correspondientes y así sacan inferencia de esta información.
 
-Este informe se dividirá en tres partes. En primer lugar, se presentarán los datos a analizar, explicando sus variables y características. En la segunda parte, se entregarán los resultados de nuestra investigación. Además, se hará una inferencia de estos resultados, para así poder entregar una conclusión de lo observado, respecto a los siniestros ocurridos en la Región Metropolitana, cuya conclusión será presentada en la última parte.
+Para este informe se usará la siguiente estructura: En primer lugar, se presentarán los datos a analizar, explicando sus variables y características. En la segunda parte, se entregarán los resultados de nuestra investigación. Además, se hará una inferencia de estos resultados, para así poder entregar una conclusión de lo observado, respecto a los siniestros ocurridos en la Región Metropolitana, cuya conclusión será presentada en la última parte.
 
+### II. Descripción de los datos
 
-#### II. Descripción de los datos
-En la base de datos inicial, se nos presenta un total de 1.697 observaciones, correspondiente a los siniestros de tránsito ocurridos en la Región Metropolitana, cabe mencionar que está base de datos, no contiene la cantidad total de los siniestros, sino solamente aquellos que fue posible geocodificar en la zona urbana, que son aproximadamente el 90%. Además, la base de datos contiene variables que no eran de interés para nuestro proyecto, es por eso, que realizaremos una limpieza para quedarnos con aquellas variables que eran significativas, las cuales son; Comuna, Zona, CalleUno, CalleDos, Numero, Fallecidos, Graves, Menos graves, Leves, Atropellos. Además, agregamos dos variables: Intersección y Distrito.
+En la base de datos inicial, se nos presenta un total de 1.697 observaciones, correspondiente a los siniestros de tránsito ocurridos en la Región Metropolitana, cabe mencionar que está base de datos, no contiene la cantidad total de los siniestros, sino solamente aquellos que fue posible geocodificar en la zona urbana, que son aproximadamente el 90%. Además, la base de datos contiene variables que no eran de interés para nuestro proyecto, es por eso, que realizaremos una limpieza para quedarnos con aquellas variables que eran significativas, las cuales podemos ver a continuación:
 
-#### III. Resultados
+-   Comuna: Indica a la comuna en donde ocurrió el siniestro.
 
-#### IV. Conclusión
+-   Zona: Urbana o Rural.
 
-#### V. Referencias
+-   CalleUno: Calle principal.
 
-https://www.anac.cl/wp-content/uploads/2021/11/10-ANAC-Mercado-Automotor-Octubre-2021.pdf
+-   CalleDos: Calle secundaria.
 
-https://www.anac.cl/wp-content/uploads/2019/01/12-Informe-del-Mercado-Automotor-Diciembre-2018.pdf
+-   Numero: Indica el número en donde ocurrió el siniestro, puede ser 0.
 
-https://www.conaset.cl/wp-content/uploads/2021/06/Chile-2020.pdf
+-   Fallecidos: Indica la cantidad de fallecidos ocurridos en el siniestro.
+
+-   Graves: Lesionados en estado grave.
+
+-   Menos_Grav:
+
+-   Leves:
+
+-   Atropellos:
+
+Al mismo tiempo, se agregaron dos variables:
+
+-   Intersección: Nos indica la intersección de los siniestros, en caso de no ver, queda la calle principal, en donde ocurrió el siniestro.
+
+-   Distrito: Indica a que distrito pertenece la comuna, en donde ocurrió el siniestro.
+
+Para indicar a que distrito correspondía cada comuna, sacamos la información de: <https://www.bcn.cl/siit/divisionelectoral/divisionelectoral>.
+
+De esta pagina, obtuvimos que:
+
+-   Distrito 8: Cerrillos, Colina, Estación Central, Lampa, Maipú, Pudahuel, Quilicura, Tiltil.
+
+-   Distrito 9: Cerro Navia, Conchalí, Huechuraba, Independencia, Lo Prado, Quita Normal, Recoleta, Renca. Distrito 10: La Granja, Macul, Ñuñoa, Providencia, San Joaquín, Santiago.
+
+-   Distrito 11: La Reina, Las Condes, Lo Barnechea, Peñalolén, Vitacura.
+
+-   Distrito 12: La Florida, La Pintana, Pirque, Puente Alto, San José de Maipo.
+
+-   Distrito 13: El Bosque, La Cisterna, Lo Espejo, Pedro Aguirre Cerda, San Miguel, San Ramón.
+
+-   Distrito 14: Alhué, Buin, Calera de Tango, Curacaví, El Monte, Isla de Maipu, María Pinto, Melipilla, Padre Hurtado, Paine, Peñaflor, San Bernardo, San Pedro, Talagante.
+
+En función de estos datos, se pretende responder las siguientes preguntas:
+
+1)  ¿Cuáles son las tres comunas en donde se registran la mayor cantidad de atropellos en la Región Metropolitana?
+
+2)  ¿Cuáles son las comunas que presentan la mayor cantidad de fallecidos en la Región Metropolitana?
+
+3)  Dividiendo la Región Metropolitana por distritos, ¿Cual distrito es el que presenta la mayor y menor cantidad de accidentes leves?
+
+4)  ¿Qué intersección de calle, posee la mayor cantidad de accidentes?
+
+5)  Dentro de las 3 comunas que presentan la mayor cantidad de atropellos, ¿Cuántos fallecidos hay en promedio?
+
+### III. Resultados
+
+### IV. Conclusión
+
+### V. Referencias
+
+<https://www.anac.cl/wp-content/uploads/2021/11/10-ANAC-Mercado-Automotor-Octubre-2021.pdf>
+
+<https://www.anac.cl/wp-content/uploads/2019/01/12-Informe-del-Mercado-Automotor-Diciembre-2018.pdf>
+
+<https://www.conaset.cl/wp-content/uploads/2021/06/Chile-2020.pdf>
