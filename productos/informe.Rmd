@@ -92,14 +92,18 @@ Grafico_atropellos
 De esté gráfico podemos concluir, que las tres comunas que poseen mayor cantidad de atropellos son: Puente Alto, Maipú y Santiago. Mientras que las que tienen una menor cantidad son: Pirque, Lampa y Lo espejo.
 
 Otra información de interés, respecto a las comunas, es saber la cantidad de fallecidos productos de los siniestros de transito ocurridos en  cada una de ellas. Esto puede observarse en la siguiente imagen:
-```{r}
+```{r echo =FALSE}
 Grafico_fallecidos
 ```
 
 Según lo observado, podemos notar que las comunas que poseen mayor cantidad de fallecidos son: Maipú, Santiago y La florida. Además, podemos notar que existen varias comunas sin ningún fallecido.
 
+Tomando en cuenta, la información que tenemos sobre los distritos y sus respectivas comunas, podemos analizar estos, en función de la cantidad de atropellos. Al mismo tiempo, podemos hacer una comparación entre la cantidad de accidentes leves y la cantidad de accidentes graves por distrito, cuya información será visualizada en los siguientes gráficos:
 
-
+```{r echo = FALSE}
+g1 /
+  (g2 |g3)
+```
 
 ### IV. Conclusión
 
