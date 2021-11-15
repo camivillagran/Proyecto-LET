@@ -4,13 +4,19 @@ author: "Camila Villagrán"
 date: "14-10-2021"
 output: html_document
 ---
+En los últimos años, hemos podido evidenciar el aumento de vehículos como medio de transporte. Al finalizar octubre del 2021, el mercado de vehículos livianos y medianos finalizo con la venta de 38.551 unidades nuevas y un crecimiento de 6.4% en comparación a octubre del 2020. Siendo octubre de este año, el de mayores ventas desde que se tiene registro de estos datos (ANAC, 2021). Hoy en día, tener un auto se ha vuelto algo común, cómodo y esencial para muchos. Esto se debe a que nos permiten ir de un lugar a otro, de manera más rápida, eficaz y lo más importante es que nos ahorran tiempo. 
 
-En los últimos años, hemos podido evidenciar el aumento de vehículos como medio de transporte. 
-Según el informe de mercado automotor, publicado por la Asociación Nacional Automotriz de Chile (ANAC)
+Si bien tener un vehículo, trae muchos beneficios, especialmente en estos tiempos de pandemia, debido a que son una herramienta para evitar contagios, dado que tienen menor riesgo que utilizar, por ejemplo, un transporte público. Sin embargo, estos también son los causantes de muchos accidentes. Según el informe elaborado por la Comisión Nacional de Seguridad de Tránsito (CONASET), durante el año 2020, se registraron un total de 64.707 siniestros de tránsito a lo largo de todo el país. La región que presenta más siniestro fue la Metropolitana, obteniendo una cifra de 19.047.
 
-Hoy en día, tener un auto se ha vuelto algo común, cómodo y esencial para muchos. Esto se debe a que nos permiten ir de un lugar a otro, de manera más rápida, eficaz y lo más importante es que nos ahorran tiempo.
+Es por esto, que, a través de este informe, realizaremos un análisis estadístico a una base de datos, la que contiene siniestros de tránsito en la Región Metropolitana en Chile, durante el año 2018. Esta fue obtenida de la CONASET, para así poder dar a conocer aquellas comunas en donde se presentan una mayor y menor cantidad de siniestros, fallecidos, etc. A su vez, poder agrupar las comunas respecto a sus distritos correspondientes y así sacan inferencia de esta información.
 
-Si bien tener un vehículo, trae muchos beneficios, estos también son los causantes de muchos accidentes. Es por esto, que, a través de este informe, realizaremos un análisis estadístico a una base de datos, la que contiene siniestros de tránsito en la Región Metropolitana en Chile, durante el año 2018. Esta fue obtenida de la Comisión Nacional de Seguridad de Tránsito (CONASET).
+Este informe se dividirá en tres partes. En primer lugar, se presentarán los datos a analizar, explicando sus variables y características. En la segunda parte, se entregarán los resultados de nuestra investigación. Además, se hará una inferencia de estos resultados, para así poder entregar una conclusión de lo observado, respecto a los siniestros ocurridos en la Región Metropolitana, cuya conclusión será presentada en la última parte.
+
+
+
+
+
+
 
 Para este análisis estadístico, tenemos como objetivo poder responder a las siguientes preguntas:
 
