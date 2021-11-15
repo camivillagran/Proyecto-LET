@@ -86,7 +86,7 @@ En función de lo presentado anteriormente, se pretende responder las siguientes
 
 ## III. Resultados
 A través de nuestro análisis estadístico, podemos visualizar desde diferentes perspectivas los siniestros de tránsito, ocurridos las comunas de la Región Metropolitana en Chile durante el año 2018. En primer lugar, analizaremos los datos para cada comuna. En particular, nos interesa determinar la cantidad de atropellos que ocurrieron en cada comuna e identificar cuáles son las tres que presentan mayor cantidad de atropellos y cuáles las tres que presentan menor cantidad o ninguna. Lo anterior, puede visualizarse en el siguiente gráfico:
-```{r}
+```{r echo =FALSE}
 Grafico_atropellos
 ```
 
@@ -104,6 +104,13 @@ Tomando en cuenta, la información que tenemos sobre los distritos y sus respect
 ```{r echo = FALSE}
 g1 /
   (g2 |g3)
+```
+
+De estos podemos concluir que el distrito 10, presenta la mayor cantidad de atropellos, accidentes leves y graves. Si no tomáramos en cuenta el distrito 14, debido a esta muestra no considera la totalidad de los siniestros, podríamos concluir que el distrito que presenta menor cantidad de atropellos es el 11, al mismo tiempo es el que presenta menos accidentes graves. En cambio, el distrito que presenta menos accidentes leves es el 13. Además, podemos observar que la cantidad de accidentes leves es aproximadamente el doble de accidentes graves.
+
+Para finalizar, sabemos que las intersecciones de calles muchas veces son las causantes de muchos siniestros de tránsito, por lo cual, nos interesa saber cuales son las intersecciones con mayor cantidad de atropellos en la Región Metropolitana, cuya información será representada a continuación:
+```{r}
+grafico_int + theme(axis.text.x = element_text(angle = 10, size = 7.5))
 ```
 
 ## IV. Conclusión
