@@ -109,7 +109,7 @@ g1 /
 De estos podemos concluir que el distrito 10, presenta la mayor cantidad de atropellos, accidentes leves y graves. Si no tomáramos en cuenta el distrito 14, debido a esta muestra no considera la totalidad de los siniestros, podríamos concluir que el distrito que presenta menor cantidad de atropellos es el 11, al mismo tiempo es el que presenta menos accidentes graves. En cambio, el distrito que presenta menos accidentes leves es el 13. Además, podemos observar que la cantidad de accidentes leves es aproximadamente el doble de accidentes graves.
 
 Para finalizar, sabemos que las intersecciones de calles muchas veces son las causantes de muchos siniestros de tránsito, por lo cual, nos interesa saber cuales son las intersecciones con mayor cantidad de atropellos en la Región Metropolitana, cuya información será representada a continuación:
-```{r}
+```{r echo = FALSE}
 grafico_int + theme(axis.text.x = element_text(angle = 10, size = 7.5))
 ```
 

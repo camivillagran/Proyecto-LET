@@ -123,7 +123,7 @@ for (j in cont) {
 
 Grafico_atropellos <- ggplot(datosfilt) +
   aes(x = factor(Comuna, levels = comunas_a), weight = Atropellos) +
-  geom_bar(fill = "#709775") +
+  geom_bar(fill = "#611618") +
   labs(x = "Comunas",
        y = "Cantidad Atropellos",
        title = "Cantidad de Atropellos por Comuna",
@@ -166,7 +166,7 @@ for (j in cont) {
 }
 Grafico_fallecidos <- ggplot(datosfilt) +
   aes(x = factor(Comuna, levels = comunas_f), weight = Fallecidos) +
-  geom_bar(stat= "count" , fill = "#8fb996") +
+  geom_bar(stat= "count" , fill = "#821415") +
   labs(x = "Comunas",
     y = "Fallecidos",
     title = "Cantidad de Fallecidos por Comuna en RM",
@@ -217,11 +217,13 @@ grafico_int <- datosfilt %>%
   filter(Atropellos >= 5L & Atropellos <= 7L) %>%
   ggplot() +
   aes(x = interseccion, weight = Atropellos) +
-  geom_bar(fill = "#87986a") +
+  geom_bar(fill = "#002945") +
   labs(x = "Intersección",
     y = "Cantidad Atropellos",
     title = "Intersección de Calles con Mayor Cantidad de Atropellos",
     subtitle = "Región Metropolitana, Chile - Año 2018") +
   theme_minimal() 
 #darkseagreen3
+#481d24
+
 grafico_int + theme(axis.text.x = element_text(angle = 10, size = 7.5))
