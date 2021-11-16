@@ -40,7 +40,7 @@ En la base de datos inicial, se nos presenta un total de 1.697 observaciones, co
 
 -   Fallecidos: Indica la cantidad de fallecidos ocurridos en el siniestro.
 
--   Graves: Accidente grave.
+-   Graves: Accidente graves.
 
 -   Menos_Grav: Accidente menos graves.
 
