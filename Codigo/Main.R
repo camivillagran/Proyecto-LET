@@ -85,10 +85,6 @@ for(i in 1:length(datosfilt$Comuna)){
   }
 }
 
-# Visualizar datos finales ------------------------------------------------
-#Proyecto Let/Proyecto-LET
-#save(datosfilt, file = "base-de-datos/datosfilt.Rdata")
-
 # Gráficos por Comunas -----------------------------------------------------
 cont = plyr::count(datosfilt$Comuna)$x
 tabl_comunas = c()
@@ -133,7 +129,7 @@ Grafico_atropellos <- ggplot(datosfilt) +
 #006466
 Grafico_atropellos 
 
-################### Gráfico Accidentes Fallecidos
+#######  Gráfico Accidentes Fallecidos
 cont = plyr::count(datosfilt$Comuna)$x
 tabl_comunas = c()
 
@@ -227,3 +223,4 @@ grafico_int <- datosfilt %>%
 #481d24
 
 grafico_int + theme(axis.text.x = element_text(angle = 10, size = 7.5))
+
