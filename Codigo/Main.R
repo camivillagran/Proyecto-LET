@@ -123,7 +123,7 @@ for (j in cont) {
 
 Grafico_atropellos <- ggplot(datosfilt) +
   aes(x = factor(Comuna, levels = comunas_a), weight = Atropellos) +
-  geom_bar(fill = "#611618") +
+  geom_bar(fill = "#9F2042") +
   labs(x = "Comunas",
        y = "Cantidad Atropellos",
        title = "Cantidad de Atropellos por Comuna",
@@ -166,7 +166,7 @@ for (j in cont) {
 }
 Grafico_fallecidos <- ggplot(datosfilt) +
   aes(x = factor(Comuna, levels = comunas_f), weight = Fallecidos) +
-  geom_bar(stat= "count" , fill = "#821415") +
+  geom_bar(stat= "count" , fill = "#9F2042") +
   labs(x = "Comunas",
     y = "Fallecidos",
     title = "Cantidad de Fallecidos por Comuna en RM",
