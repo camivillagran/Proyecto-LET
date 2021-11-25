@@ -58,19 +58,15 @@ Para indicar a que distrito correspondía cada comuna, sacamos la información d
 
 De la página anterior, obtuvimos que (Debo colocarlo en tabla) :
 
--   Distrito 8: Cerrillos, Colina, Estación Central, Lampa, Maipú, Pudahuel, Quilicura, Tiltil.
-
--   Distrito 9: Cerro Navia, Conchalí, Huechuraba, Independencia, Lo Prado, Quita Normal, Recoleta, Renca.
-
--   Distrito 10: La Granja, Macul, Ñuñoa, Providencia, San Joaquín, Santiago.
-
--   Distrito 11: La Reina, Las Condes, Lo Barnechea, Peñalolén, Vitacura.
-
--   Distrito 12: La Florida, La Pintana, Pirque, Puente Alto, San José de Maipo.
-
--   Distrito 13: El Bosque, La Cisterna, Lo Espejo, Pedro Aguirre Cerda, San Miguel, San Ramón.
-
--   Distrito 14: Alhué, Buin, Calera de Tango, Curacaví, El Monte, Isla de Maipu, María Pinto, Melipilla, Padre Hurtado, Paine, Peñaflor, San Bernardo, San Pedro, Talagante.
+| Distrito  |               Comunas                      |
+|:---------:|:------------------------------------------:|
+|     8     | Cerrillos, Colina, Estación Central, Lampa, Maipú, Pudahuel,  Quilicura, Tiltil.|
+|     9     | Cerro Navia, Conchalí, Huechuraba, Independencia, Lo Prado, Quinta Normal, Recoleta, Renca.|
+|    10     | La Granja, Macul, Ñuñoa, Providencia, San Joaquín, Santiago.|
+|    11     | La Reina, Las Condes, Lo Barnechea, Peñalolén, Vitacura.|
+|    12     | La Florida, La Pintana, Pirquem Puente Alto, San José de Maipo.|
+|    13     | El Bosque, La Cisterna, Lo Espejo, Pedro Aguirre Cerda, San Miguel, San Ramón.|
+|    14     | Alhué, Buin, Calera de Tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Milipilla, Padre Hurtado, Paine, Peñaflor, San Bernardo, San Pedro, Talagante.|
 
 Al unir esta información con la base de datos, obtuvimos que hay comunas que no son consideradas, en esta muestra. Las cuáles son: Tiltil, San José de Maipo, Alhué, Buin, Calera de tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Melipilla, Paine, Peñaflor, San Pedro, Talagante. Podemos notar que, en su mayoría son del distrito 14. Esto se debe, a que como fue mencionado anteriormente, la base de datos contiene la información de aquellas comunas que, sí lograron ser geocodifadas, dejando afuera comunas más rurales, como lo son en su mayoría las del distrito 14.
 
@@ -121,6 +117,7 @@ De este gráfico podemos concluir que la intersección que presenta una mayor ca
 
 
 ## IV. Conclusión
+
 
 ## V. Referencias
 
