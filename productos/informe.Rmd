@@ -27,51 +27,33 @@ Para este informe se usará la siguiente estructura: En primer lugar, se present
 
 En la base de datos inicial, se nos presenta un total de 1.697 observaciones, correspondiente a los siniestros de tránsito ocurridos en la Región Metropolitana, cabe mencionar que está base, no contiene la cantidad total de los siniestros, sino solamente aquellos que fue posible geocodificar en la zona urbana, que son aproximadamente el 90%. Además, la base de datos contiene variables que no eran de interés para nuestro proyecto, es por eso, que realizaremos una limpieza para quedarnos con aquellas variables que eran significativas, las cuales podemos ver a continuación:
 
-+------------------+---------------------------------------------------+
-| Variable         | Descripción                                       |
-+==================+===================================================+
-| Comuna           |                                                   |
-+------------------+---------------------------------------------------+
-|                  |                                                   |
-+------------------+---------------------------------------------------+
-|                  |                                                   |
-+------------------+---------------------------------------------------+
-|                  |                                                   |
-+------------------+---------------------------------------------------+
-|                  |                                                   |
-+------------------+---------------------------------------------------+
-|                  |                                                   |
-+------------------+---------------------------------------------------+
-|                  |                                                   |
-+------------------+---------------------------------------------------+
-|                  |                                                   |
-+------------------+---------------------------------------------------+
-|                  |                                                   |
-+------------------+---------------------------------------------------+
-|                  |                                                   |
-+------------------+---------------------------------------------------+
-
-: Variables base de datos
-
--   Comuna: Indica a la comuna en donde ocurrió el siniestro.
-
--   Zona: Indica si el siniestro ocurrio en una zona Urbana o Rural.
++----------------+---------------------------------------------------------------------------------------------+
+| Variable       | Descripción                                                                                 |
++================+=============================================================================================+
+| Comuna         | Indica la comuna donde ocurrió el siniestro de transito.                                    |
++----------------+---------------------------------------------------------------------------------------------+
+| Zona           | Indica si el siniestro ocurrió en una zona Urbana o Rural.                                  |
++----------------+---------------------------------------------------------------------------------------------+
+| CalleUno       |                                                                                             |
++----------------+---------------------------------------------------------------------------------------------+
+| CalleDos       |                                                                                             |
++----------------+---------------------------------------------------------------------------------------------+
+| Numero         | Indica el número de calle en donde ocurrió en siniestro.                                    |
++----------------+---------------------------------------------------------------------------------------------+
+| Fallecidos     | Indica la cantidad de fallecidos ocurridos en el siniestro.                                 |
++----------------+---------------------------------------------------------------------------------------------+
+| Graves         | Hace referencia a lesionados graves .                                                       |
++----------------+---------------------------------------------------------------------------------------------+
+| Menos_Grav     | Se refiere a lesionados menos graves.                                                       |
++----------------+---------------------------------------------------------------------------------------------+
+| Leves          | Se refiere a lesionados leves.                                                              |
++----------------+---------------------------------------------------------------------------------------------+
+| Atropellos     | Indica la cantidad de atropellos que ocurrieron en las calles involucradas en el atropello. |
++----------------+---------------------------------------------------------------------------------------------+
 
 -   CalleUno: Calle principal del siniestro.
 
 -   CalleDos: Calle secundaria del siniestro, en caso de haber ocurrido en una intersección.
-
--   Numero: Indica el número en donde ocurrió el siniestro, puede ser 0.
-
--   Fallecidos: Indica la cantidad de fallecidos ocurridos en el siniestro.
-
--   Graves: Accidente graves.
-
--   Menos_Grav: Accidente menos graves.
-
--   Leves: Accidentes leves.
-
--   Atropellos: Indica el número de atropellos por siniestro.
 
 Al mismo tiempo, se agregaron dos variables:
 

@@ -133,7 +133,7 @@
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
                   <p class="author"><span class="glyphicon glyphicon-user"></span> Camila Villagrán</p>
-                        <p class="date"><span class="glyphicon glyphicon-calendar"></span> -11-2021</p>
+                        <p class="date"><span class="glyphicon glyphicon-calendar"></span> 03-12-2021</p>
           </div>
    </div>
      
@@ -153,23 +153,69 @@
 <div id="ii.-descripción-de-los-datos" class="section level2">
 <h2>II. Descripción de los datos</h2>
 <p>En la base de datos inicial, se nos presenta un total de 1.697 observaciones, correspondiente a los siniestros de tránsito ocurridos en la Región Metropolitana, cabe mencionar que está base, no contiene la cantidad total de los siniestros, sino solamente aquellos que fue posible geocodificar en la zona urbana, que son aproximadamente el 90%. Además, la base de datos contiene variables que no eran de interés para nuestro proyecto, es por eso, que realizaremos una limpieza para quedarnos con aquellas variables que eran significativas, las cuales podemos ver a continuación:</p>
+<table>
+<colgroup>
+<col width="15%" />
+<col width="84%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Comuna</td>
+<td>Indica la comuna donde ocurrió el siniestro de transito.</td>
+</tr>
+<tr class="even">
+<td>Zona</td>
+<td>Indica si el siniestro ocurrió en una zona Urbana o Rural.</td>
+</tr>
+<tr class="odd">
+<td>CalleUno</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>CalleDos</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Numero</td>
+<td>Indica el número de calle en donde ocurrió en siniestro.</td>
+</tr>
+<tr class="even">
+<td>Fallecidos</td>
+<td>Indica la cantidad de fallecidos ocurridos en el siniestro.</td>
+</tr>
+<tr class="odd">
+<td>Graves</td>
+<td>Hace referencia a lesionados graves .</td>
+</tr>
+<tr class="even">
+<td>Menos_Grav</td>
+<td>Se refiere a lesionados menos graves.</td>
+</tr>
+<tr class="odd">
+<td>Leves</td>
+<td>Se refiere a lesionados leves.</td>
+</tr>
+<tr class="even">
+<td>Atropellos</td>
+<td>Indica la cantidad de atropellos que ocurrieron en las calles involucradas en el atropello.</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li><p>Comuna: Indica a la comuna en donde ocurrió el siniestro.</p></li>
-<li><p>Zona: Indica si el siniestro ocurrio en una zona Urbana o Rural.</p></li>
 <li><p>CalleUno: Calle principal del siniestro.</p></li>
 <li><p>CalleDos: Calle secundaria del siniestro, en caso de haber ocurrido en una intersección.</p></li>
-<li><p>Numero: Indica el número en donde ocurrió el siniestro, puede ser 0.</p></li>
-<li><p>Fallecidos: Indica la cantidad de fallecidos ocurridos en el siniestro.</p></li>
-<li><p>Graves: Accidente graves.</p></li>
-<li><p>Menos_Grav: Accidente menos graves.</p></li>
-<li><p>Leves: Accidentes leves.</p></li>
-<li><p>Atropellos: Indica el número de atropellos por siniestro.</p></li>
 </ul>
 <p>Al mismo tiempo, se agregaron dos variables:</p>
 <table>
 <colgroup>
-<col width="13%" />
-<col width="86%" />
+<col width="9%" />
+<col width="90%" />
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -186,8 +232,8 @@
 <p>De la página anterior, obtuvimos que (Debo colocarlo en tabla) :</p>
 <table>
 <colgroup>
-<col width="8%" />
-<col width="91%" />
+<col width="6%" />
+<col width="93%" />
 </colgroup>
 <thead>
 <tr class="header">
