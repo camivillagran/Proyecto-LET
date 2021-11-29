@@ -190,8 +190,8 @@ g2 <- ggplot(datosfilt) +
       weight = Leves) +
   geom_bar(fill = "#469d89") +
   labs(x = "Distritos",
-       y = "Cantidad de Accidentes Leves",
-       title = "Accidentes Leves por Distritos",
+       y = "Cantidad de Lesionados Leves",
+       title = "Lesionados Leves por Distritos",
        subtitle = "Región Metropolitana, Chile - Año 2018") +
   theme_minimal()
 #lightcyan3
@@ -201,13 +201,16 @@ g3 <- ggplot(datosfilt) +
       weight = Graves) +
   geom_bar(fill = "#56ab91") +
   labs(x = "Distritos",
-       y = "Cantidad de Accidentes Graves",
-       title = "Accidentes Graves por Distritos",
+       y = "Cantidad de lesionados Graves",
+       title = "Lesionados Graves por Distritos",
        subtitle = "Región Metropolitana, Chile - Año 2018") +
   theme_minimal()
 #lightsteelblue3
 g1 /
   (g2 |g3)
+
+  
+  
 # Gráficos con intersección de calles --------------------------------------
 grafico_int <- datosfilt %>%
   filter(Atropellos >= 5L & Atropellos <= 7L) %>%

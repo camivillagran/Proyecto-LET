@@ -27,29 +27,29 @@ Para este informe se usará la siguiente estructura: En primer lugar, se present
 
 En la base de datos inicial, se nos presenta un total de 1.697 observaciones, correspondiente a los siniestros de tránsito ocurridos en la Región Metropolitana, cabe mencionar que está base, no contiene la cantidad total de los siniestros, sino solamente aquellos que fue posible geocodificar en la zona urbana, que son aproximadamente el 90%. Además, la base de datos contiene variables que no eran de interés para nuestro proyecto, es por eso, que realizaremos una limpieza para quedarnos con aquellas variables que eran significativas, las cuales podemos ver a continuación:
 
-+----------------+---------------------------------------------------------------------------------------------+
-| Variable       | Descripción                                                                                 |
-+================+=============================================================================================+
-| Comuna         | Indica la comuna donde ocurrió el siniestro de transito.                                    |
-+----------------+---------------------------------------------------------------------------------------------+
-| Zona           | Indica si el siniestro ocurrió en una zona Urbana o Rural.                                  |
-+----------------+---------------------------------------------------------------------------------------------+
-| CalleUno       |                                                                                             |
-+----------------+---------------------------------------------------------------------------------------------+
-| CalleDos       |                                                                                             |
-+----------------+---------------------------------------------------------------------------------------------+
-| Numero         | Indica el número de calle en donde ocurrió en siniestro.                                    |
-+----------------+---------------------------------------------------------------------------------------------+
-| Fallecidos     | Indica la cantidad de fallecidos ocurridos en el siniestro.                                 |
-+----------------+---------------------------------------------------------------------------------------------+
-| Graves         | Hace referencia a lesionados graves .                                                       |
-+----------------+---------------------------------------------------------------------------------------------+
-| Menos_Grav     | Se refiere a lesionados menos graves.                                                       |
-+----------------+---------------------------------------------------------------------------------------------+
-| Leves          | Se refiere a lesionados leves.                                                              |
-+----------------+---------------------------------------------------------------------------------------------+
-| Atropellos     | Indica la cantidad de atropellos que ocurrieron en las calles involucradas en el atropello. |
-+----------------+---------------------------------------------------------------------------------------------+
++----------------------+---------------------------------------------------------------------------------------------+
+| Variable             | Descripción                                                                                 |
++======================+=============================================================================================+
+| Comuna               | Indica la comuna donde ocurrió el siniestro de transito.                                    |
++----------------------+---------------------------------------------------------------------------------------------+
+| Zona                 | Indica si el siniestro ocurrió en una zona Urbana o Rural.                                  |
++----------------------+---------------------------------------------------------------------------------------------+
+| CalleUno             |                                                                                             |
++----------------------+---------------------------------------------------------------------------------------------+
+| CalleDos             |                                                                                             |
++----------------------+---------------------------------------------------------------------------------------------+
+| Numero               | Indica el número de calle en donde ocurrió en siniestro.                                    |
++----------------------+---------------------------------------------------------------------------------------------+
+| Fallecidos           | Indica la cantidad de fallecidos ocurridos en el siniestro.                                 |
++----------------------+---------------------------------------------------------------------------------------------+
+| Graves               | Hace referencia a lesionados graves .                                                       |
++----------------------+---------------------------------------------------------------------------------------------+
+| Menos_Grav           | Se refiere a lesionados menos graves.                                                       |
++----------------------+---------------------------------------------------------------------------------------------+
+| Leves                | Se refiere a lesionados leves.                                                              |
++----------------------+---------------------------------------------------------------------------------------------+
+| Atropellos           | Indica la cantidad de atropellos que ocurrieron en las calles involucradas en el atropello. |
++----------------------+---------------------------------------------------------------------------------------------+
 
 -   CalleUno: Calle principal del siniestro.
 
@@ -57,11 +57,11 @@ En la base de datos inicial, se nos presenta un total de 1.697 observaciones, co
 
 Al mismo tiempo, se agregaron dos variables:
 
-+:------------:+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Intersección | Indica la intersección de calles de los siniestros ocurridos, en caso de no ver intersección queda la calle principal en donde ocurrió el siniestro. |
-+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Distrito     | Indica a que distrito pertenece la comuna en donde ocurrió el siniestro.                                                                             |
-+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
++:--------------------:+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Intersección         | Indica la intersección de calles de los siniestros ocurridos, en caso de no ver intersección queda la calle principal en donde ocurrió el siniestro. |
++----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Distrito             | Indica a que distrito pertenece la comuna en donde ocurrió el siniestro.                                                                             |
++----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Para indicar a que distrito correspondía cada comuna, sacamos la información de: <https://www.bcn.cl/siit/divisionelectoral/divisionelectoral>.
 
@@ -70,9 +70,9 @@ De la página anterior, obtuvimos que (Debo colocarlo en tabla) :
 +----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Distrito | Comunas                                                                                                                                                      |
 +:========:+==============================================================================================================================================================+
-| 8        | Cerrillos; Colina, Estación Central; Lampa; Maipú; Pudahuel; Quilicura; Tiltil.                                                                              |
+| 8        | Cerrillos, Colina, Estación Central, Lampa, Maipú, Pudahuel, Quilicura, Tiltil.                                                                              |
 +----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 9        | Cerro Navia; Conchalí; Huechuraba; Independencia; Lo Prado; Quinta Normal, Recoleta, Renca.                                                                  |
+| 9        | Cerro Navia, Conchalí, Huechuraba, Independencia, Lo Prado, Quinta Normal, Recoleta, Renca.                                                                  |
 +----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 10       | La Granja, Macul, Ñuñoa, Providencia, San Joaquín, Santiago.                                                                                                 |
 +----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -82,7 +82,7 @@ De la página anterior, obtuvimos que (Debo colocarlo en tabla) :
 +----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 13       | El Bosque, La Cisterna, Lo Espejo, Pedro Aguirre Cerda, San Miguel, San Ramón.                                                                               |
 +----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 14       | Alhué, Buin, Calera de Tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Milipilla, Padre Hurtado, Paine, Peñaflor, San Bernardo, San Pedro, Talagante. |
+| 14       | Alhué, Buin, Calera de Tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Melipilla, Padre Hurtado, Paine, Peñaflor, San Bernardo, San Pedro, Talagante. |
 +----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Al unir esta información con la base de datos, obtuvimos que hay comunas que no son consideradas, en esta muestra. Las cuáles son: Tiltil, San José de Maipo, Alhué, Buin, Calera de tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Melipilla, Paine, Peñaflor, San Pedro, Talagante. Podemos notar que, en su mayoría son del distrito 14. Esto se debe, a que como fue mencionado anteriormente, la base de datos contiene la información de aquellas comunas que, sí lograron ser geocodifadas, dejando afuera comunas más rurales, como lo son en su mayoría las del distrito 14.
