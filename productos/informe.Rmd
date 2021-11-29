@@ -15,13 +15,14 @@ source(here::here("Codigo/Main.R"), local = knitr::knit_global(),
 
 ## I. Introducción
 
-En los últimos años, hemos podido evidenciar el aumento de vehículos como medio de transporte. Según la Asociación Nacional Automotriz de Chile (ANAC), al finalizar octubre del 2021, el mercado de vehículos livianos y medianos finalizó con la venta de 38.551 unidades nuevas y un crecimiento de 6.4% en comparación a octubre del 2020. Se convirtió, así, en el mes de mayores ventas desde que se tiene registro. Esto muestra que, hoy en día, tener un auto se ha vuelto algo común, cómodo y esencial para muchas personas. Una de las razones es que nos permite ir de un lugar a otro de manera más rápida, eficaz y, lo más importante es que nos ahorran tiempo.
+En los últimos años, hemos podido evidenciar el aumento de vehículos como medio de transporte. Según la Asociación Nacional Automotriz de Chile (ANAC), al finalizar octubre del 2021, el mercado de vehículos livianos y medianos finalizó con la venta de 38.551 unidades nuevas y un crecimiento de 6.4% en comparación a octubre del 2020. Se convirtió, así, en el mes de mayores ventas desde que se tiene registro (ANAC, 2021, pág. 2). Esto muestra que, hoy en día, tener un auto se ha vuelto algo común, cómodo y esencial para muchas personas. Una de las razones es que nos permite ir de un lugar a otro de manera más rápida, eficaz y, lo más importante es que nos ahorran tiempo.
 
-Si bien tener un vehículo trae muchos beneficios, especialmente en estos tiempos de pandemia, debido a que son una herramienta para evitar contagios, estos son, al mismo tiempo, los causantes de muchos accidentes. Según el informe elaborado por la Comisión Nacional de Seguridad de Tránsito (CONASET), durante el año 2020 se registraron un total de 64.707 siniestros de tránsito a lo largo de todo el país, siendo la región Metropolitana la que presentó la cifra más alta de siniestros: 19.047.
+Si bien tener un vehículo trae muchos beneficios, especialmente en estos tiempos de pandemia, debido a que son una herramienta para evitar contagios, estos son, al mismo tiempo, los causantes de muchos accidentes. Según el informe elaborado por la Comisión Nacional de Seguridad de Tránsito (CONASET), durante el año 2020 se registraron un total de 64.707 siniestros de tránsito a lo largo de todo el país, siendo la región Metropolitana la que presentó la cifra más alta de siniestros: 19.047 (CONASET, 2020, pág. 3).
 
 Este informe tiene por objetivo realizar un análisis estadístico de la base de datos obtenida de CONASET sobre siniestros de tránsito en la Región Metropolitana en Chile durante el año 2018. Específicamente se busca identificar patrones en términos de las comunas en donde ocurren los accidentes.
 
-Este informe se organiza en tres secciones. En primer lugar, se darán a conocer los datos a analizar, explicando sus variables y características. En la segunda parte, se presentarán los resultados obtenidos y se realizara una inferencia a partir de estos. Finalmente, se entregarán las conclusiones obtenidas a partir del análisis de los siniestros ocurridos en la Región Metropolitana.
+Este informe se organiza en tres secciones. En primer lugar, se darán a conocer los datos a analizar, explicando sus variables y características. En la segunda parte, se presentarán los resultados obtenidos
+y se realizara una inferencia a partir de estos. Finalmente, se entregarán las conclusiones obtenidas a partir del análisis de los siniestros ocurridos en la Región Metropolitana.
 
 ## II. Descripción de los datos
 
@@ -139,8 +140,10 @@ De este gráfico podemos concluir que la intersección que presenta una mayor ca
 
 ## V. Referencias
 
+ANAC. (Octubre de 2021). *Informe del Mercado Automotor.* Obtenido de
 <https://www.anac.cl/wp-content/uploads/2021/11/10-ANAC-Mercado-Automotor-Octubre-2021.pdf>
 
-<https://www.anac.cl/wp-content/uploads/2019/01/12-Informe-del-Mercado-Automotor-Diciembre-2018.pdf>
-
+CONASET. (2020). *Diagnóstico de siniestros de tránsito en Chile.* Obtenido de
 <https://www.conaset.cl/wp-content/uploads/2021/06/Chile-2020.pdf>
+
+ 
