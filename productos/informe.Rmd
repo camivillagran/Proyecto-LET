@@ -27,33 +27,27 @@ Para este informe se usará la siguiente estructura: En primer lugar, se present
 
 En la base de datos inicial, se nos presenta un total de 1.697 observaciones, correspondiente a los siniestros de tránsito ocurridos en la Región Metropolitana, cabe mencionar que está base, no contiene la cantidad total de los siniestros, sino solamente aquellos que fue posible geocodificar en la zona urbana, que son aproximadamente el 90%. Además, la base de datos contiene variables que no eran de interés para nuestro proyecto, es por eso, que realizaremos una limpieza para quedarnos con aquellas variables que eran significativas, las cuales podemos ver a continuación:
 
-+:----------:+---------------------------------------------------------------------------------------------+
-| Variable   | Descripción                                                                                 |
-+============+=============================================================================================+
-| Comuna     | Indica la comuna donde ocurrió el siniestro de transito.                                    |
-+------------+---------------------------------------------------------------------------------------------+
-| Zona       | Indica si el siniestro ocurrió en una zona Urbana o Rural.                                  |
-+------------+---------------------------------------------------------------------------------------------+
-| CalleUno   |                                                                                             |
-+------------+---------------------------------------------------------------------------------------------+
-| CalleDos   |                                                                                             |
-+------------+---------------------------------------------------------------------------------------------+
-| Numero     | Indica el número de calle en donde ocurrió en siniestro.                                    |
-+------------+---------------------------------------------------------------------------------------------+
-| Fallecidos | Indica la cantidad de fallecidos ocurridos en el siniestro.                                 |
-+------------+---------------------------------------------------------------------------------------------+
-| Graves     | Hace referencia a lesionados graves .                                                       |
-+------------+---------------------------------------------------------------------------------------------+
-| Menos_Grav | Se refiere a lesionados menos graves.                                                       |
-+------------+---------------------------------------------------------------------------------------------+
-| Leves      | Se refiere a lesionados leves.                                                              |
-+------------+---------------------------------------------------------------------------------------------+
-| Atropellos | Indica la cantidad de atropellos que ocurrieron en las calles involucradas en el atropello. |
-+------------+---------------------------------------------------------------------------------------------+
-
--   CalleUno: Calle principal del siniestro.
-
--   CalleDos: Calle secundaria del siniestro, en caso de haber ocurrido en una intersección.
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Variable   | Descripción                                                                                                                                                                                                   |
++============+===============================================================================================================================================================================================================+
+| Comuna     | Indica la comuna donde ocurrió el siniestro de transito.                                                                                                                                                      |
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| CalleUno   | Indica la calle principal.                                                                                                                                                                                    |
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| CalleDos   | Indica la calle secundaria en caso de que existir una intersección de calles.                                                                                                                                 |
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Numero     | Indica el número de calle.                                                                                                                                                                                    |
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Fallecidos | Indica la cantidad de fallecidos ocurridos por calles, por ejemplo, en la calle Carrascal de la comuna de Quinta Normal, hubieron dos fallecidos, que no necesariamente son del mismo siniestro.              |
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Graves     | Hace referencia a lesionados graves, entendiendo como una lesión grave aquella en donde está en riego la vida de los involucrados.                                                                            |
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Menos_Grav | Se refiere a lesionados menos graves, entendiendo como una lesión menos grave aquella que no pone en riego la vida de los involucrados pero los incapacita para trabajar por un tiempo no superior a 30 días. |
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Leves      | Se refiere a lesionados leves, entendiendo como una lesión leve aquella en donde no se produce una incapacidad para trabajar.                                                                                 |
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Atropellos | Indica la cantidad de atropellos que ocurrieron en las calles involucradas en el siniestro de tránsito.                                                                                                       |
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Al mismo tiempo, se agregaron dos variables:
 
@@ -97,7 +91,7 @@ A partir de estos datos el siguiente informe busca responder las siguientes preg
 
 4)  ¿Qué intersección de calle, posee la mayor cantidad de accidentes?
 
-5)  Dentro de las 3 comunas que presentan la mayor cantidad de atropellos, ¿Cuántos fallecidos hay en promedio?
+5)   Dentro de las comuna que presenta mayor cantidad de atropellos, ¿Cuál es la probabilidad de que existan fallecidos?
 
 ## III. Resultados
 

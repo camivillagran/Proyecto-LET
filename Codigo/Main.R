@@ -122,10 +122,13 @@ Grafico_atropellos <- ggplot(datosfilt) +
   geom_bar(fill = "#9F2042") +
   labs(x = "Comunas",
        y = "Cantidad Atropellos",
-       title = "Cantidad de Atropellos por Comuna",
+       title = "Cantidad de Atropellos por Comuna ",
        subtitle = "Región Metropolitana, Chile - Año 2018") +
   coord_flip() +
-  theme_minimal()
+  theme_minimal()+
+  theme(plot.subtitle = element_text(hjust = 0.5)) +
+  ggx::gg_("center the title please")
+
 #006466
 Grafico_atropellos 
 
@@ -165,10 +168,12 @@ Grafico_fallecidos <- ggplot(datosfilt) +
   geom_bar(stat= "count" , fill = "#9F2042") +
   labs(x = "Comunas",
     y = "Fallecidos",
-    title = "Cantidad de Fallecidos por Comuna en RM",
-    subtitle = "Chile - Año 2018") +
+    title = "Cantidad de Fallecidos por comuna",
+    subtitle = "Región Metropolitana, Chile - Año 2018") +
   coord_flip() +
-  theme_minimal() 
+  theme_minimal() +
+  theme(plot.subtitle = element_text(hjust = 0.5)) +
+  ggx::gg_("center the title please")
 #"#065a60"
 Grafico_fallecidos
 
@@ -181,7 +186,10 @@ g1<- ggplot(datosfilt) +
        y = "Cantidad Atropellos",
        title = "Cantidad de Atropellos por Distritos",
        subtitle = "Región Metropolitana, Chile - 2018") +
-  theme_minimal()
+  theme_minimal() +
+  theme(plot.subtitle = element_text(hjust = 0.5)) +
+  ggx::gg_("center the title please")
+
 g1
 #lightblue3
 
@@ -193,7 +201,9 @@ g2 <- ggplot(datosfilt) +
        y = "Cantidad de Lesionados Leves",
        title = "Lesionados Leves por Distritos",
        subtitle = "Región Metropolitana, Chile - Año 2018") +
-  theme_minimal()
+  theme_minimal() +
+  theme(plot.subtitle = element_text(hjust = 0.5)) +
+  ggx::gg_("center the title please")
 #lightcyan3
 
 g3 <- ggplot(datosfilt) +
@@ -204,7 +214,9 @@ g3 <- ggplot(datosfilt) +
        y = "Cantidad de lesionados Graves",
        title = "Lesionados Graves por Distritos",
        subtitle = "Región Metropolitana, Chile - Año 2018") +
-  theme_minimal()
+  theme_minimal() +
+  theme(plot.subtitle = element_text(hjust = 0.5)) +
+  ggx::gg_("center the title please")
 #lightsteelblue3
 g1 /
   (g2 |g3)
@@ -216,14 +228,14 @@ grafico_int <- datosfilt %>%
   filter(Atropellos >= 5L & Atropellos <= 7L) %>%
   ggplot() +
   aes(x = interseccion, weight = Atropellos) +
-  geom_bar(fill = "#002945") +
+  geom_bar(fill = "#B3B3B3") +
   labs(x = "Intersección",
     y = "Cantidad Atropellos",
     title = "Intersección de Calles con Mayor Cantidad de Atropellos",
     subtitle = "Región Metropolitana, Chile - Año 2018") +
-  theme_minimal() 
-#darkseagreen3
-#481d24
+  theme_minimal() +
+  theme(plot.subtitle = element_text(hjust = 0.5)) +
+  ggx::gg_("center the title please")
 
 grafico_int + theme(axis.text.x = element_text(angle = 10, size = 7.5))
 

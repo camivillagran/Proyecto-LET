@@ -155,8 +155,8 @@
 <p>En la base de datos inicial, se nos presenta un total de 1.697 observaciones, correspondiente a los siniestros de tránsito ocurridos en la Región Metropolitana, cabe mencionar que está base, no contiene la cantidad total de los siniestros, sino solamente aquellos que fue posible geocodificar en la zona urbana, que son aproximadamente el 90%. Además, la base de datos contiene variables que no eran de interés para nuestro proyecto, es por eso, que realizaremos una limpieza para quedarnos con aquellas variables que eran significativas, las cuales podemos ver a continuación:</p>
 <table>
 <colgroup>
-<col width="12%" />
-<col width="87%" />
+<col width="5%" />
+<col width="94%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -170,47 +170,39 @@
 <td>Indica la comuna donde ocurrió el siniestro de transito.</td>
 </tr>
 <tr class="even">
-<td>Zona</td>
-<td>Indica si el siniestro ocurrió en una zona Urbana o Rural.</td>
-</tr>
-<tr class="odd">
 <td>CalleUno</td>
-<td></td>
+<td>Indica la calle principal.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>CalleDos</td>
-<td></td>
+<td>Indica la calle secundaria en caso de que existir una intersección de calles.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Numero</td>
-<td>Indica el número de calle en donde ocurrió en siniestro.</td>
+<td>Indica el número de calle.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Fallecidos</td>
-<td>Indica la cantidad de fallecidos ocurridos en el siniestro.</td>
+<td>Indica la cantidad de fallecidos ocurridos por calles, por ejemplo, en la calle Carrascal de la comuna de Quinta Normal, hubieron dos fallecidos, que no necesariamente son del mismo siniestro.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Graves</td>
-<td>Hace referencia a lesionados graves .</td>
-</tr>
-<tr class="even">
-<td>Menos_Grav</td>
-<td>Se refiere a lesionados menos graves.</td>
+<td>Hace referencia a lesionados graves, entendiendo como una lesión grave aquella en donde está en riego la vida de los involucrados.</td>
 </tr>
 <tr class="odd">
-<td>Leves</td>
-<td>Se refiere a lesionados leves.</td>
+<td>Menos_Grav</td>
+<td>Se refiere a lesionados menos graves, entendiendo como una lesión menos grave aquella que no pone en riego la vida de los involucrados pero los incapacita para trabajar por un tiempo no superior a 30 días.</td>
 </tr>
 <tr class="even">
+<td>Leves</td>
+<td>Se refiere a lesionados leves, entendiendo como una lesión leve aquella en donde no se produce una incapacidad para trabajar.</td>
+</tr>
+<tr class="odd">
 <td>Atropellos</td>
-<td>Indica la cantidad de atropellos que ocurrieron en las calles involucradas en el atropello.</td>
+<td>Indica la cantidad de atropellos que ocurrieron en las calles involucradas en el siniestro de tránsito.</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><p>CalleUno: Calle principal del siniestro.</p></li>
-<li><p>CalleDos: Calle secundaria del siniestro, en caso de haber ocurrido en una intersección.</p></li>
-</ul>
 <p>Al mismo tiempo, se agregaron dos variables:</p>
 <table>
 <colgroup>
