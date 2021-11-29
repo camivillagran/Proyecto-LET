@@ -15,17 +15,19 @@ source(here::here("Codigo/Main.R"), local = knitr::knit_global(),
 
 ## I. Introducción
 
-En los últimos años, hemos podido evidenciar el aumento de vehículos como medio de transporte. Según la Asociación Nacional Automotriz de Chile (ANAC), al finalizar octubre del 2021, el mercado de vehículos livianos y medianos finalizó con la venta de 38.551 unidades nuevas y un crecimiento de 6.4% en comparación a octubre del 2020. Se convirtió, así, el mes de mayores ventas desde que se tiene registro. Esto muestra que, hoy en día, tener un auto se ha vuelto algo común, cómodo y esencial para muchas personas. Una de las razones es que nos permite ir de un lugar a otro de manera más rápida, eficaz y, lo más importante es que nos ahorran tiempo.
+En los últimos años, hemos podido evidenciar el aumento de vehículos como medio de transporte. Según la Asociación Nacional Automotriz de Chile (ANAC), al finalizar octubre del 2021, el mercado de vehículos livianos y medianos finalizó con la venta de 38.551 unidades nuevas y un crecimiento de 6.4% en comparación a octubre del 2020. Se convirtió, así, en el mes de mayores ventas desde que se tiene registro. Esto muestra que, hoy en día, tener un auto se ha vuelto algo común, cómodo y esencial para muchas personas. Una de las razones es que nos permite ir de un lugar a otro de manera más rápida, eficaz y, lo más importante es que nos ahorran tiempo.
 
 Si bien tener un vehículo trae muchos beneficios, especialmente en estos tiempos de pandemia, debido a que son una herramienta para evitar contagios, estos son, al mismo tiempo, los causantes de muchos accidentes. Según el informe elaborado por la Comisión Nacional de Seguridad de Tránsito (CONASET), durante el año 2020 se registraron un total de 64.707 siniestros de tránsito a lo largo de todo el país, siendo la región Metropolitana la que presentó la cifra más alta de siniestros: 19.047.
 
-Es por esto que, a través de este informe, realizaremos un análisis estadístico a una base de datos, la que contiene siniestros de tránsito en la Región Metropolitana en Chile durante el año 2018. Esta fue obtenida de la CONASET, para así poder dar a conocer aquellas comunas en donde se presentan una mayor y menor cantidad de siniestros, fallecidos, etc. A su vez, poder agrupar las comunas respecto a sus distritos correspondientes y así sacan inferencia de esta información.
+Este informe tiene por objetivo realizar un análisis estadístico de la base de datos obtenida de CONASET sobre siniestros de tránsito en la Región Metropolitana en Chile durante el año 2018. Específicamente se busca identificar patrones en términos de las comunas en donde ocurren los
+accidentes.
 
-Para este informe se usará la siguiente estructura: En primer lugar, se presentarán los datos a analizar, explicando sus variables y características. En la segunda parte, se entregarán los resultados de nuestra investigación. Además, se hará una inferencia de estos resultados, para así poder entregar una conclusión de lo observado, respecto a los siniestros ocurridos en la Región Metropolitana, cuya conclusión será presentada en la última parte.
+Este informe se organiza en tres secciones. En primer lugar, se darán a conocer los datos a analizar, explicando sus variables y características. En la segunda parte, se presentarán los resultados obtenidos
+y se realizara una inferencia a partir de estos. Finalmente, se entregarán las conclusiones obtenidas a partir del análisis de los siniestros ocurridos en la Región Metropolitana.
 
 ## II. Descripción de los datos
 
-En la base de datos inicial, se nos presenta un total de 1.697 observaciones, correspondiente a los siniestros de tránsito ocurridos en la Región Metropolitana, cabe mencionar que está base, no contiene la cantidad total de los siniestros, sino solamente aquellos que fue posible geocodificar en la zona urbana, que son aproximadamente el 90%. Además, la base de datos contiene variables que no eran de interés para nuestro proyecto, es por eso, que realizaremos una limpieza para quedarnos con aquellas variables que eran significativas, las cuales podemos ver a continuación:
+En la base de datos inicial, que fue obtenida desde <https://mapas-conaset.opendata.arcgis.com/datasets/a6b29cedc95d41e98e5a56a617afdded_0/about>. Se nos presenta un total de 1.697 observaciones, correspondiente a los siniestros de tránsito ocurridos en la Región Metropolitana. Cabe mencionar que esta base no contiene la cantidad total de los siniestros, sino solamente aquellos que fue posible geocodificar en la zona urbana, que son aproximadamente el 90%. Además, la base de datos contiene variables que no eran de interés para nuestro proyecto, las que fueron descartadas. Por lo tanto, de la base original de la CONASET se mantuvieron las siguientes variables:
 
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Variable   | Descripción                                                                                                                                                                                                   |
@@ -49,17 +51,16 @@ En la base de datos inicial, se nos presenta un total de 1.697 observaciones, co
 | Atropellos | Indica la cantidad de atropellos que ocurrieron en las calles involucradas en el siniestro de tránsito.                                                                                                       |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-Al mismo tiempo, se agregaron dos variables:
+Al mismo tiempo, se agregaron dos variables que no estaban incluidas en la base original:
 
-+:------------:+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Intersección | Indica la intersección de calles de los siniestros ocurridos, en caso de no ver intersección queda la calle principal en donde ocurrió el siniestro. |
-+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Distrito     | Indica a que distrito pertenece la comuna en donde ocurrió el siniestro.                                                                             |
-+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
++:------------:+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Intersección | Indica la intersección de calles de los siniestros ocurridos, en caso de no ver intersección queda la calle principal en donde ocurrió el siniestro (DE DONDE LA SAQUE).                              |
++--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Distrito     | Indica a qué distrito pertenece la comuna en donde ocurrió el siniestro. Según la división electoral, cuya información fue obtenida de: <https://www.bcn.cl/siit/divisionelectoral/divisionelectoral> |
++--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-Para indicar a que distrito correspondía cada comuna, sacamos la información de: <https://www.bcn.cl/siit/divisionelectoral/divisionelectoral>.
-
-De la página anterior, obtuvimos que (Debo colocarlo en tabla) :
+La organización de las comunas de la base de datos en distritos queda de la siguiente
+manera:
 
 +----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Distrito | Comunas                                                                                                                                                      |
@@ -79,7 +80,7 @@ De la página anterior, obtuvimos que (Debo colocarlo en tabla) :
 | 14       | Alhué, Buin, Calera de Tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Melipilla, Padre Hurtado, Paine, Peñaflor, San Bernardo, San Pedro, Talagante. |
 +----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-Al unir esta información con la base de datos, obtuvimos que hay comunas que no son consideradas, en esta muestra. Las cuáles son: Tiltil, San José de Maipo, Alhué, Buin, Calera de tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Melipilla, Paine, Peñaflor, San Pedro, Talagante. Podemos notar que, en su mayoría son del distrito 14. Esto se debe, a que como fue mencionado anteriormente, la base de datos contiene la información de aquellas comunas que, sí lograron ser geocodifadas, dejando afuera comunas más rurales, como lo son en su mayoría las del distrito 14.
+Al unir esta información con la base de datos, obtuvimos que hay comunas que no son consideradas, en esta muestra. Estas son: Tiltil, San José de Maipo, Alhué, Buin, Calera de Tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Melipilla, Paine, Peñaflor, San Pedro, Talagante. Podemos notar que, en su mayoría, son del distrito 14. Esto se debe a que, como fue mencionado anteriormente, la base de datos contiene la información de aquellas comunas que sí lograron ser geocodifadas, dejando afuera comunas más rurales como lo son en su mayoría las del distrito 14.
 
 A partir de estos datos el siguiente informe busca responder las siguientes preguntas:
 
@@ -87,11 +88,13 @@ A partir de estos datos el siguiente informe busca responder las siguientes preg
 
 2)  ¿Cuáles son las comunas que presentan la mayor cantidad de fallecidos en la Región Metropolitana?
 
-3)  Dividiendo la Región Metropolitana por distritos, ¿Cual distrito es el que presenta la mayor y menor cantidad de accidentes leves?
+3)  Dividiendo la Región Metropolitana por distritos, ¿Como se comportan estos respecto a los lesionados?
 
-4)  ¿Qué intersección de calle, posee la mayor cantidad de accidentes?
+4)  Siguiendo la misma metodología del punto 3, ¿Cuál es el que presenta mayor
+    cantidad de atropellos y cuál el que presenta mayor cantidad de fallecidos?,
+    ¿Qué se puede concluir de lo anterior?
 
-5)   Dentro de las comuna que presenta mayor cantidad de atropellos, ¿Cuál es la probabilidad de que existan fallecidos?
+5)  ¿Qué intersección de calle, posee la mayor cantidad de accidentes?
 
 ## III. Resultados
 
@@ -105,30 +108,37 @@ Grafico_atropellos
 
 De esté gráfico podemos concluir que las tres comunas que poseen mayor cantidad de atropellos son: Puente Alto, Maipú y Santiago. Por su parte, las que tienen una menor cantidad son Pirque, Lampa y Lo Espejo.
 
-Otra información de interés, respecto a las comunas, es saber la cantidad de fallecidos productos de los siniestros de transito ocurridos en cada una de ellas. Esto puede observarse en la siguiente imagen:
+Otra información de interés, respecto a las comunas, es saber la cantidad de fallecidos producto de los siniestros de tránsito ocurridos en cada una de ellas. Esto puede observarse en la siguiente imagen:
 
 ```{r echo =FALSE}
 Grafico_fallecidos
 ```
 
-Según lo observado, podemos notar que las comunas que poseen mayor cantidad de fallecidos son: Maipú, Santiago y La florida. Además, podemos notar que existen varias comunas sin ningún fallecido.
+Según lo observado, podemos notar que las comunas que poseen mayor cantidad de fallecidos son Maipú, Santiago y La Florida. Además, podemos notar que existen varias comunas sin ningún fallecido.
 
-Tomando en cuenta, la información que tenemos sobre los distritos y sus respectivas comunas, podemos analizar estos en función de la cantidad de atropellos. Al mismo tiempo, podemos hacer una comparación entre la cantidad de accidentes leves y la cantidad de accidentes graves por distrito, cuya información será visualizada en los siguientes gráficos:
+Tomando en cuenta la información que tenemos sobre los distritos y sus respectivas comunas, podemos analizar esto en función de los tipos de lesiones, que fueron descritas anteriormente. Cuya información será visualizada en los siguientes gráficos:
 
 ```{r echo = FALSE}
-g1 /
+g1/
   (g2 |g3)
 ```
 
-De estos podemos concluir que el distrito 10, presenta la mayor cantidad de atropellos, accidentes leves y graves. Si no tomáramos en cuenta el distrito 14, debido a esta muestra no considera la totalidad de los siniestros, podríamos concluir que el distrito que presenta menor cantidad de atropellos es el 11, al mismo tiempo es el que presenta menos accidentes graves. En cambio, el distrito que presenta menos accidentes leves es el 13. Además, podemos observar que la cantidad de accidentes leves es aproximadamente el doble de accidentes graves.
+De los gráficos anteriores podemos concluir que el distrito 10, presenta la mayor cantidad de lesionados sin importar la gravedad de las lesiones. Si no tomáramos en cuenta el distrito 14, debido a esta muestra no considera la totalidad de los siniestros, podríamos concluir que entre los distrito 11 y 13 son los que contienen menos lesionados.
 
-Para finalizar, sabemos que las intersecciones de calles muchas veces son las causantes de muchos siniestros de tránsito, por lo cual, nos interesa saber cuales son las intersecciones con mayor cantidad de atropellos en la Región Metropolitana, cuya información será representada a continuación:
+```{r}
+Atropellos_dist /
+  Fallecidos_dist
+```
+
+Para finalizar, sabemos que las intersecciones de calles muchas veces son las causantes de una gran cantidad siniestros de tránsito, por lo cuál nos interesa saber cuales son las intersecciones con mayor cantidad de atropellos en la Región Metropolitana. Lo anterior será representado a continuación:
 
 ```{r echo = FALSE}
 grafico_int + theme(axis.text.x = element_text(angle = 10, size = 7.5))
+
+
 ```
 
-De este gráfico podemos concluir que la intersección que presenta una mayor cantidad de atropellos en la Región Metropolitana es Avenida 5 de abril con Los pajaritos, ubicada en la comuna de Maipú, cuya comuna es la segunda con más atropellos de la Región Metropolitana, como fue visto anteriormente.
+De este gráfico podemos concluir que la intersección que presenta una mayor cantidad de atropellos en la Región Metropolitana es Avenida 5 de abril con Los Pajaritos, ubicada en la comuna de Maipú. Cabe recordar que está es la segunda comuna con más atropellos de la Región Metropolitana, como fue visto anteriormente.
 
 ## IV. Conclusión
 

@@ -178,25 +178,10 @@ Grafico_fallecidos <- ggplot(datosfilt) +
 Grafico_fallecidos
 
 # Gráficos Distritos ------------------------------------------------------
-g1<- ggplot(datosfilt) +
-  aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")), 
-      weight = Atropellos) +
-  geom_bar(fill = "#14746f") +
-  labs(x = "Distritos",
-       y = "Cantidad Atropellos",
-       title = "Cantidad de Atropellos por Distritos",
-       subtitle = "Región Metropolitana, Chile - 2018") +
-  theme_minimal() +
-  theme(plot.subtitle = element_text(hjust = 0.5)) +
-  ggx::gg_("center the title please")
-
-g1
-#lightblue3
-
-g2 <- ggplot(datosfilt) +
+g1 <- ggplot(datosfilt) +
   aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")),
       weight = Leves) +
-  geom_bar(fill = "#469d89") +
+  geom_bar(fill = "#14746f") +
   labs(x = "Distritos",
        y = "Cantidad de Lesionados Leves",
        title = "Lesionados Leves por Distritos",
@@ -204,7 +189,20 @@ g2 <- ggplot(datosfilt) +
   theme_minimal() +
   theme(plot.subtitle = element_text(hjust = 0.5)) +
   ggx::gg_("center the title please")
-#lightcyan3
+
+
+g2<- ggplot(datosfilt) +
+  aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")), 
+      weight = Menos_Grav) +
+  geom_bar(fill = "#469d89") +
+  labs(x = "Distritos",
+       y = "Cantidad Lesionados Menos Graves",
+       title = "Lesionados Menos Graves por Distritos",
+       subtitle = "Región Metropolitana, Chile - 2018") +
+  theme_minimal() +
+  theme(plot.subtitle = element_text(hjust = 0.5)) +
+  ggx::gg_("center the title please")
+
 
 g3 <- ggplot(datosfilt) +
   aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")),
@@ -221,21 +219,51 @@ g3 <- ggplot(datosfilt) +
 g1 /
   (g2 |g3)
 
+Atropellos_dist <- ggplot(datosfilt) +
+  aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")), 
+      weight = Atropellos) +
+  geom_bar(fill = "#14746f") +
+  labs(x = "Distritos",
+       y = "Cantidad Atropellos",
+       title = "Atropellos por Distritos",
+       subtitle = "Región Metropolitana, Chile - 2018") +
+  theme_minimal() +
+  theme(plot.subtitle = element_text(hjust = 0.5)) +
+  ggx::gg_("center the title please")
+Atropellos_dist
   
-  
+Fallecidos_dist <- ggplot(datosfilt) +
+  aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")), 
+      weight = Fallecidos) +
+  geom_bar(fill = "#14746f") +
+  labs(x = "Distritos",
+       y = "Cantidad Fallecidos",
+       title = "Fallecidos por Distritos",
+       subtitle = "Región Metropolitana, Chile - 2018") +
+  theme_minimal() +
+  theme(plot.subtitle = element_text(hjust = 0.5)) +
+  ggx::gg_("center the title please")
+
+
+Atropellos_dist /
+  Fallecidos_dist
+
 # Gráficos con intersección de calles --------------------------------------
 grafico_int <- datosfilt %>%
   filter(Atropellos >= 5L & Atropellos <= 7L) %>%
   ggplot() +
   aes(x = interseccion, weight = Atropellos) +
-  geom_bar(fill = "#B3B3B3") +
+  geom_bar(fill = "#9F2042") +
   labs(x = "Intersección",
     y = "Cantidad Atropellos",
     title = "Intersección de Calles con Mayor Cantidad de Atropellos",
     subtitle = "Región Metropolitana, Chile - Año 2018") +
   theme_minimal() +
   theme(plot.subtitle = element_text(hjust = 0.5)) +
-  ggx::gg_("center the title please")
+  coord_flip() +
+  ggx::gg_("center the title please") 
 
 grafico_int + theme(axis.text.x = element_text(angle = 10, size = 7.5))
+
+
 
