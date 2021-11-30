@@ -181,7 +181,7 @@ Grafico_fallecidos
 g1 <- ggplot(datosfilt) +
   aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")),
       weight = Leves) +
-  geom_bar(fill = "#14746f") +
+  geom_bar(fill = "#5fb49c") +
   labs(x = "Distritos",
        y = "Cantidad de Lesionados Leves",
        title = "Lesionados Leves por Distritos",
@@ -189,7 +189,7 @@ g1 <- ggplot(datosfilt) +
   theme_minimal() +
   theme(plot.subtitle = element_text(hjust = 0.5)) +
   ggx::gg_("center the title please")
-
+#14746f
 
 g2<- ggplot(datosfilt) +
   aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")), 
@@ -203,7 +203,6 @@ g2<- ggplot(datosfilt) +
   theme(plot.subtitle = element_text(hjust = 0.5)) +
   ggx::gg_("center the title please")
 
-
 g3 <- ggplot(datosfilt) +
   aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")),
       weight = Graves) +
@@ -215,14 +214,14 @@ g3 <- ggplot(datosfilt) +
   theme_minimal() +
   theme(plot.subtitle = element_text(hjust = 0.5)) +
   ggx::gg_("center the title please")
-#lightsteelblue3
+
 g1 /
   (g2 |g3)
 
 Atropellos_dist <- ggplot(datosfilt) +
   aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")), 
       weight = Atropellos) +
-  geom_bar(fill = "#56ab91") +
+  geom_bar(fill = "#62a894") +
   labs(x = "Distritos",
        y = "Cantidad Atropellos",
        title = "Atropellos por Distritos",
@@ -235,7 +234,7 @@ Atropellos_dist
 Fallecidos_dist <- ggplot(datosfilt) +
   aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")), 
       weight = Fallecidos) +
-  geom_bar(fill = "#56ab91") +
+  geom_bar(fill = "#62a894") +
   labs(x = "Distritos",
        y = "Cantidad Fallecidos",
        title = "Fallecidos por Distritos",
