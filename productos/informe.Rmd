@@ -34,9 +34,9 @@ En la base de datos inicial, que fue obtenida desde <https://mapas-conaset.opend
 +:==========:+===============================================================================================================================================================================================================+
 | Comuna     | Indica la comuna donde ocurrió el siniestro de transito.                                                                                                                                                      |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| CalleUno   | Indica la calle principal.                                                                                                                                                                                    |
+| CalleUno   | Indica una avenida, que es una vía importante de comunicación dentro de una ciudad o asentamiento urbano.                                                                                                     |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| CalleDos   | Indica la calle secundaria en caso de que existir una intersección de calles.                                                                                                                                 |
+| CalleDos   | Indica la calle secundaria, en caso de existir un cruce de calles.                                                                                                                                            |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Numero     | Indica el número de calle.                                                                                                                                                                                    |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -53,11 +53,11 @@ En la base de datos inicial, que fue obtenida desde <https://mapas-conaset.opend
 
 Al mismo tiempo, se agregaron dos variables que no estaban incluidas en la base original:
 
-+:------------:+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Intersección | Indica la intersección de calles de los siniestros ocurridos, en caso de no ver intersección queda la calle principal en donde ocurrió el siniestro (DE DONDE LA SAQUE).                              |
-+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Distrito     | Indica a qué distrito pertenece la comuna en donde ocurrió el siniestro. Según la división electoral, cuya información fue obtenida de: <https://www.bcn.cl/siit/divisionelectoral/divisionelectoral> |
-+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++:------------:+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Intersección | Indica la intersección de calles de los siniestros ocurridos, en caso de no ver intersección queda la calle principal en donde ocurrió el siniestro. Esta intersección fue realizada mediante la unión de las variables CalleUno y CalleDos. |
++--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Distrito     | Indica a qué distrito pertenece la comuna en donde ocurrió el siniestro. Según la división electoral, cuya información fue obtenida de: <https://www.bcn.cl/siit/divisionelectoral/divisionelectoral>                                        |
++--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 La organización de las comunas de la base de datos en distritos queda de la siguiente manera:
 
