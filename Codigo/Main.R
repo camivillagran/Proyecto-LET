@@ -222,7 +222,7 @@ g1 /
 Atropellos_dist <- ggplot(datosfilt) +
   aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")), 
       weight = Atropellos) +
-  geom_bar(fill = "#14746f") +
+  geom_bar(fill = "#56ab91") +
   labs(x = "Distritos",
        y = "Cantidad Atropellos",
        title = "Atropellos por Distritos",
@@ -235,7 +235,7 @@ Atropellos_dist
 Fallecidos_dist <- ggplot(datosfilt) +
   aes(x = factor(Distrito,levels = c("8", "9", "10", "11", "12", "13", "14")), 
       weight = Fallecidos) +
-  geom_bar(fill = "#14746f") +
+  geom_bar(fill = "#56ab91") +
   labs(x = "Distritos",
        y = "Cantidad Fallecidos",
        title = "Fallecidos por Distritos",
@@ -263,7 +263,8 @@ grafico_int <- datosfilt %>%
   coord_flip() +
   ggx::gg_("center the title please") 
 
-grafico_int + theme(axis.text.x = element_text(angle = 10, size = 7.5))
+grafico_int 
+#+ theme(axis.text.x = element_text(angle = 10, size = 7.5))
 
 
 

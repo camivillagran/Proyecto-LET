@@ -122,15 +122,19 @@ g1/
 
 De los gráficos anteriores podemos concluir que el distrito 10, presenta la mayor cantidad de lesionados sin importar la gravedad de las lesiones. Si no tomáramos en cuenta el distrito 14, debido a esta muestra no considera la totalidad de los siniestros, podríamos concluir que entre los distrito 11 y 13 son los que contienen menos lesionados.
 
+Siguiendo con la división por distrito, otro análisis que podemos realizar es respecto a su cantidad de atropellos y fallecidos, que es mostrado a continuación:
+
 ```{r echo = FALSE}
 Atropellos_dist /
   Fallecidos_dist
 ```
 
-Para finalizar, sabemos que las intersecciones de calles muchas veces son las causantes de una gran cantidad siniestros de tránsito, por lo cuál nos interesa saber cuales son las intersecciones con mayor cantidad de atropellos en la Región Metropolitana. Lo anterior será representado a continuación:
+Podemos observar que nuevamente es el distrito 10 quien posee una mayor cantidad de atropellos. Sin embargo, el distrito 8 es el que tiene más fallecidos producto de los accidentes.
+
+Para finalizar nuestro análisis, sabemos que las intersecciones de calles muchas veces son las causantes de una gran cantidad siniestros de tránsito, por lo cuál nos interesa saber cuales son las intersecciones con mayor cantidad de atropellos en la Región Metropolitana. Lo anterior será representado a continuación:
 
 ```{r echo = FALSE}
-grafico_int + theme(axis.text.x = element_text(angle = 10, size = 7.5))
+grafico_int 
 
 
 ```
