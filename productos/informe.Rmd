@@ -17,8 +17,7 @@ source(here::here("Codigo/Main.R"), local = knitr::knit_global(),
 
 En los últimos años, hemos podido evidenciar el aumento de vehículos como medio de transporte. Según la Asociación Nacional Automotriz de Chile (ANAC), al finalizar octubre del 2021, el mercado de vehículos livianos y medianos finalizó con la venta de 38.551 unidades nuevas y un crecimiento de 6.4% en comparación a octubre del 2020. Se convirtió, así, en el mes de mayores ventas desde que se tiene registro (ANAC, 2021, p. 2). Esto muestra que, hoy en día, tener un auto se ha vuelto algo común, cómodo y esencial para muchas personas. Una de las razones es que nos permite ir de un lugar a otro de manera más rápida, eficaz y, lo más importante es que nos ahorran tiempo.
 
-Si bien tener un vehículo trae muchos beneficios, especialmente en estos tiempos de pandemia, debido a que son una herramienta para evitar contagios, estos son, al mismo tiempo, los causantes de muchos accidentes. Según la Comisión Nacional de Seguridad de Tránsito (CONASET), durante el año 2020, se registraron en el país 64.707 siniestros de tránsito, dejando como consecuencia 1.485 fallecidos y 42.103 lesionados, siendo la región Metropolitana la que presentó la cifra más alta de siniestros: 19.047 (CONASET, 2020, p.3). Es por esto, que es de interés analizar estos siniestros para disminuir la cantidad de
-accidentes y lesionados.
+Si bien tener un vehículo trae muchos beneficios, especialmente en estos tiempos de pandemia, debido a que son una herramienta para evitar contagios, estos son, al mismo tiempo, los causantes de muchos accidentes. Según la Comisión Nacional de Seguridad de Tránsito (CONASET), durante el año 2020, se registraron en el país 64.707 siniestros de tránsito, dejando como consecuencia 1.485 fallecidos y 42.103 lesionados, siendo la región Metropolitana la que presentó la cifra más alta de siniestros: 19.047 (CONASET, 2020, p.3). Es por esto, que es de interés analizar estos siniestros para disminuir la cantidad de accidentes y lesionados.
 
 Este informe tiene por objetivo realizar un análisis estadístico de la base de datos obtenida de CONASET sobre siniestros de tránsito en la Región Metropolitana en Chile durante el año 2018. Específicamente se busca identificar patrones en términos de las comunas en donde ocurren los siniestros.
 
@@ -28,55 +27,36 @@ Para ello, el informe se organiza en tres secciones. En primer lugar, se darán 
 
 En la base de datos inicial, que fue obtenida desde <https://mapas-conaset.opendata.arcgis.com/datasets/a6b29cedc95d41e98e5a56a617afdded_0/about>. Se nos presenta un total de 1.697 observaciones, correspondiente a los siniestros de tránsito ocurridos en la Región Metropolitana. Cabe mencionar que esta base no contiene la cantidad total de los siniestros, sino solamente aquellos que fue posible geocodificar en la zona urbana, que son aproximadamente el 90%. Además, la base de datos contiene variables que no eran de interés para nuestro proyecto, las que fueron descartadas. Por lo tanto, de la base original de la CONASET se mantuvieron las siguientes variables:
 
-+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Variable   | Descripción                                                                                                                                                                                                   |
-+:==========:+===============================================================================================================================================================================================================+
-| Comuna     | Indica la comuna donde ocurrió el siniestro de transito.                                                                                                                                                      |
-+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| CalleUno   | Indica una avenida, que es una vía importante de comunicación dentro de una ciudad o asentamiento urbano.                                                                                                     |
-+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| CalleDos   | Indica la calle secundaria, en caso de existir un cruce de calles.                                                                                                                                            |
-+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Numero     | Indica el número de calle.                                                                                                                                                                                    |
-+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|  Variable  | Descripción                                                                                                                                                                                                   |
+|:----------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   Comuna   | Indica la comuna donde ocurrió el siniestro de transito.                                                                                                                                                      |
+|  CalleUno  | Indica una avenida, que es una vía importante de comunicación dentro de una ciudad o asentamiento urbano.                                                                                                     |
+|  CalleDos  | Indica la calle secundaria, en caso de existir un cruce de calles.                                                                                                                                            |
+|   Numero   | Indica el número de calle.                                                                                                                                                                                    |
 | Fallecidos | Indica la cantidad de fallecidos ocurridos por calles, por ejemplo, en la calle Carrascal de la comuna de Quinta Normal, hubieron dos fallecidos, que no necesariamente son del mismo siniestro.              |
-+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Graves     | Hace referencia a lesionados graves, entendiendo como una lesión grave aquella en donde está en riego la vida de los involucrados.                                                                            |
-+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|   Graves   | Hace referencia a lesionados graves, entendiendo como una lesión grave aquella en donde está en riego la vida de los involucrados.                                                                            |
 | Menos_Grav | Se refiere a lesionados menos graves, entendiendo como una lesión menos grave aquella que no pone en riego la vida de los involucrados pero los incapacita para trabajar por un tiempo no superior a 30 días. |
-+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Leves      | Se refiere a lesionados leves, entendiendo como una lesión leve aquella en donde no se produce una incapacidad para trabajar.                                                                                 |
-+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|   Leves    | Se refiere a lesionados leves, entendiendo como una lesión leve aquella en donde no se produce una incapacidad para trabajar.                                                                                 |
 | Atropellos | Indica la cantidad de atropellos que ocurrieron en las calles involucradas en el siniestro de tránsito.                                                                                                       |
-+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Al mismo tiempo, se agregaron dos variables que no estaban incluidas en la base original:
 
-+:------------:+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|              |                                                                                                                                                                                                                                              |
+|:------------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Intersección | Indica la intersección de calles de los siniestros ocurridos, en caso de no ver intersección queda la calle principal en donde ocurrió el siniestro. Esta intersección fue realizada mediante la unión de las variables CalleUno y CalleDos. |
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Distrito     | Indica a qué distrito pertenece la comuna en donde ocurrió el siniestro. Según la división electoral, cuya información fue obtenida de: <https://www.bcn.cl/siit/divisionelectoral/divisionelectoral>                                        |
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|   Distrito   | Indica a qué distrito pertenece la comuna en donde ocurrió el siniestro. Según la división electoral, cuya información fue obtenida de: <https://www.bcn.cl/siit/divisionelectoral/divisionelectoral>                                        |
 
 La organización de las comunas de la base de datos en distritos queda de la siguiente manera:
 
-+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Distrito | Comunas                                                                                                                                                      |
-+:========:+==============================================================================================================================================================+
-| 8        | Cerrillos, Colina, Estación Central, Lampa, Maipú, Pudahuel, Quilicura, Tiltil.                                                                              |
-+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 9        | Cerro Navia, Conchalí, Huechuraba, Independencia, Lo Prado, Quinta Normal, Recoleta, Renca.                                                                  |
-+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 10       | La Granja, Macul, Ñuñoa, Providencia, San Joaquín, Santiago.                                                                                                 |
-+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 11       | La Reina, Las Condes, Lo Barnechea, Peñalolén, Vitacura.                                                                                                     |
-+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 12       | La Florida, La Pintana, Pirque, Puente Alto, San José de Maipo.                                                                                              |
-+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 13       | El Bosque, La Cisterna, Lo Espejo, Pedro Aguirre Cerda, San Miguel, San Ramón.                                                                               |
-+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 14       | Alhué, Buin, Calera de Tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Melipilla, Padre Hurtado, Paine, Peñaflor, San Bernardo, San Pedro, Talagante. |
-+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|:--------:|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    8     | Cerrillos, Colina, Estación Central, Lampa, Maipú, Pudahuel, Quilicura, Tiltil.                                                                              |
+|    9     | Cerro Navia, Conchalí, Huechuraba, Independencia, Lo Prado, Quinta Normal, Recoleta, Renca.                                                                  |
+|    10    | La Granja, Macul, Ñuñoa, Providencia, San Joaquín, Santiago.                                                                                                 |
+|    11    | La Reina, Las Condes, Lo Barnechea, Peñalolén, Vitacura.                                                                                                     |
+|    12    | La Florida, La Pintana, Pirque, Puente Alto, San José de Maipo.                                                                                              |
+|    13    | El Bosque, La Cisterna, Lo Espejo, Pedro Aguirre Cerda, San Miguel, San Ramón.                                                                               |
+|    14    | Alhué, Buin, Calera de Tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Melipilla, Padre Hurtado, Paine, Peñaflor, San Bernardo, San Pedro, Talagante. |
 
 Al unir esta información con la base de datos, obtuvimos que hay comunas que no son consideradas, en esta muestra. Estas son: Tiltil, San José de Maipo, Alhué, Buin, Calera de Tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Melipilla, Paine, Peñaflor, San Pedro, Talagante. Podemos notar que, en su mayoría, son del distrito 14. Esto se debe a que, como fue mencionado anteriormente, la base de datos contiene la información de aquellas comunas que sí lograron ser geocodifadas, dejando afuera comunas más rurales como lo son en su mayoría las del distrito 14.
 
