@@ -15,21 +15,21 @@ source(here::here("Codigo/Main.R"), local = knitr::knit_global(),
 
 ## Resumen 
 
-Los siniestros de tránsito cada día son más frecuentes. Por lo que, en este informe se busca ver patrones que existen sobre estos en la Región Metropolitana a través de un análisis estadístico. Los datos utilizados poseen información sobre comunas, accidentes y tipos de lesiones. Los resultados obtenidos presentan la cantidad de accidentes y fallecidos por comunas. Al mismo tiempo, se agruparon las comunas en función de sus distritos correspondientes para inferir información a partir de ellos. A partir de estos resultados se pueden tomar decisiones para una educación vial más responsable.
+Los siniestros de tránsito cada día son más frecuentes. Por lo que, en este informe se busca ver patrones que existen sobre estos en la Región Metropolitana a través de un análisis estadístico. Los datos utilizados poseen información sobre las comunas, accidentes y tipos de lesiones. Los resultados obtenidos presentan la cantidad de accidentes y fallecidos por comunas. Al mismo tiempo, se agruparon las comunas en función de sus distritos correspondientes para inferir información a partir de ellos. A partir de estos resultados se pueden tomar decisiones para una educación vial más responsable.
 
 ## I. Introducción
 
-En los últimos años, se ha podido evidenciar el aumento de vehículos como medio de transporte. Según la Asociación Nacional Automotriz de Chile (ANAC), al finalizar octubre del 2021, el mercado de vehículos livianos y medianos finalizó con la venta de 38.551 unidades nuevas y un crecimiento de 6.4% en comparación a octubre del 2020. Se convirtió, así, en el mes de mayores ventas desde que se tiene registro (ANAC, 2021, p. 2). Esto muestra que, hoy en día, tener un auto se ha vuelto algo común, cómodo y esencial para muchas personas. Una de las razones es que permite ir de un lugar a otro de manera más rápida, eficaz y, lo más importante es que ahorran tiempo.
+En los últimos años, se ha podido evidenciar el aumento de vehículos como medio de transporte. Según la Asociación Nacional Automotriz de Chile (ANAC), al finalizar octubre del 2021, el mercado de vehículos livianos y medianos finalizó con la venta de 38.551 unidades nuevas y un crecimiento de 6.4% en comparación a octubre del 2020. Se convirtió, así, en el mes de mayores ventas desde que se tiene registro (ANAC, 2021, p. 2). Esto muestra que, hoy en día, tener un auto se ha vuelto algo común, cómodo y esencial para muchas personas. Una de las razones es que permite ir de un lugar a otro de manera más rápida, eficaz y lo más importante es que ahorran tiempo.
 
 Si bien tener un vehículo trae muchos beneficios, especialmente en estos tiempos de pandemia, debido a que son una herramienta para evitar contagios, estos son, al mismo tiempo, los causantes de muchos accidentes. Según la Comisión Nacional de Seguridad de Tránsito (CONASET), durante el año 2020, se registraron en el país 64.707 siniestros de tránsito, dejando como consecuencia 1.485 fallecidos y 42.103 lesionados, siendo la Región Metropolitana la que presentó la cifra más alta de siniestros: 19.047 (CONASET, 2020, p.3). Es por esto que, es de interés analizar estos siniestros para tomar conciencia de ellos y ser de ayuda para la toma de decisiones generando que estas, puedan disminuir la cantidad de accidentes y lesionados.
 
 Este informe tiene por objetivo realizar un análisis estadístico de la base de datos obtenida de CONASET sobre siniestros de tránsito en la Región Metropolitana en Chile durante el año 2018. Específicamente, se busca identificar patrones en términos de las comunas en donde ocurren los siniestros.
 
-Para ello, el informe se organiza en tres secciones. En primer lugar, se darán a conocer los datos a analizar, explicando sus variables y características. En la segunda parte, se presentarán los resultados obtenidos y se realizará una inferencia a partir de estos. Finalmente, se entregarán las conclusiones obtenidas a partir del análisis de los siniestros ocurridos en la región Metropolitana.
+Para ello, el informe se organiza en tres secciones. En primer lugar, se darán a conocer los datos a analizar, explicando sus variables y características. En la segunda parte, se presentarán los resultados obtenidos y se realizará una inferencia a partir de estos. Finalmente, se entregarán las conclusiones obtenidas a partir del análisis de los siniestros ocurridos en la Región Metropolitana.
 
 ## II. Descripción de los datos
 
-En la base de datos inicial, que fue obtenida desde <https://mapas-conaset.opendata.arcgis.com/datasets/a6b29cedc95d41e98e5a56a617afdded_0/about>. Se presenta un total de 1.697 observaciones, correspondiente a los siniestros de tránsito ocurridos en la Región Metropolitana. Cabe mencionar que esta base no contiene la cantidad total de los siniestros, sino que aquellos que fue posible geocodificar en la zona urbana, que son aproximadamente el 90%. Además, la base de datos contiene variables que no eran de interés para este proyecto, como consecuencia, se decidió eliminar. Por lo tanto, de la base original de la CONASET se mantuvieron las siguientes variables:
+En la base de datos inicial, que fue obtenida desde la página web de la Comisión Nacional de Seguridad de Tránsito (2019). Se presenta un total de 1.697 observaciones, correspondiente a los siniestros de tránsito ocurridos en la Región Metropolitana. Cabe mencionar que esta base no contiene la cantidad total de los siniestros, sino que aquellos que fue posible geocodificar en la zona urbana, que son aproximadamente el 90%. Además, la base de datos contiene variables que no eran de interés para este proyecto, como consecuencia, se decidió eliminar. Por lo tanto, de la base original de la CONASET se mantuvieron las siguientes variables:
 
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Variable   | Descripción                                                                                                                                                                                                   |
@@ -44,7 +44,7 @@ En la base de datos inicial, que fue obtenida desde <https://mapas-conaset.opend
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Fallecidos | Indica la cantidad de fallecidos ocurridos por calles, por ejemplo, en la calle Carrascal de la comuna de Quinta Normal, hubieron dos fallecidos, que no necesariamente son del mismo siniestro.              |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Graves     | Hace referencia a lesionados graves, entendiendo como una lesión grave aquella en donde está en riego la vida de los involucrados.                                                                            |
+| Graves     | Se refiere a lesionados graves, entendiendo como una lesión grave aquella en donde está en riego la vida de los involucrados.                                                                            |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Menos_Grav | Se refiere a lesionados menos graves, entendiendo como una lesión menos grave aquella que no pone en riego la vida de los involucrados pero los incapacita para trabajar por un tiempo no superior a 30 días. |
 +------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -81,7 +81,7 @@ La organización de las comunas de la base de datos en distritos queda de la sig
 | 14       | Alhué, Buin, Calera de Tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Melipilla, Padre Hurtado, Paine, Peñaflor, San Bernardo, San Pedro, Talagante. |
 +----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-Al unir esta información con la base de datos, se obtuvo que hay comunas que no son consideradas, en esta muestra. Estas son: Tiltil, San José de Maipo, Alhué, Buin, Calera de Tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Melipilla, Paine, Peñaflor, San Pedro, Talagante. Se puede notar que, en su mayoría, son del distrito 14. Esto se debe a que, como ya fue mencionado anteriormente, la base de datos contiene la información de aquellas comunas que sí lograron ser geocodifadas, dejando afuera comunas más rurales como lo son en su mayoría las del distrito 14.
+Al unir esta información con la base de datos, se obtuvo que hay comunas que no son consideradas en esta muestra. Estas son: Tiltil, San José de Maipo, Alhué, Buin, Calera de Tango, Curacaví, El Monte, Isla de Maipo, María Pinto, Melipilla, Paine, Peñaflor, San Pedro, Talagante. Comunas que en su mayoría son del distrito 14. Esto se debe a que, como ya fue mencionado anteriormente, la base de datos contiene la información de aquellas comunas que sí lograron ser geocodifadas, dejando afuera comunas más rurales como lo son en su mayoría las del distrito 14.
 
 A partir de estos datos el siguiente informe busca responder las siguientes preguntas:
 
@@ -105,7 +105,7 @@ En primer lugar, se analizará los datos para cada comuna. En particular, intere
 Grafico_atropellos
 ```
 
-De esté gráfico se aprecia que que las tres comunas que poseen mayor cantidad de atropellos son: Puente Alto, Maipú y Santiago. Por su parte, las que tienen una menor cantidad son Pirque, Lampa y Lo Espejo.
+De esté gráfico se aprecia que que las tres comunas que poseen mayor cantidad de atropellos son: Puente Alto, Maipú y Santiago. Por otra parte, las que tienen una menor cantidad son Pirque, Lampa y Lo Espejo.
 
 Otra información de interés, respecto a las comunas, es saber la cantidad de fallecidos producto de los siniestros de tránsito ocurridos en cada una de ellas. Esto puede observarse en la siguiente imagen:
 
@@ -131,9 +131,9 @@ Atropellos_dist /
   Fallecidos_dist
 ```
 
-Se puede observar que nuevamente es el distrito 10 quien posee una mayor cantidad de atropellos. Sin embargo, el distrito 8 es el que tiene más fallecidos producto de los accidentes.
+Se puede observar que nuevamente es el distrito 10 quien posee una mayor cantidad de atropellos. Sin embargo, el distrito 8 es el que tiene más fallecidos producto de los siniestros.
 
-Para finalizar el análisis, se sabe que las intersecciones de calles muchas veces son las causantes de una gran cantidad siniestros de tránsito, por lo cuál es de interés saber cuales son las intersecciones con mayor cantidad de atropellos en la región Metropolitana. Lo anterior será representado a continuación:
+Para finalizar el análisis, se sabe que las intersecciones de calles muchas veces son las causantes de una gran cantidad siniestros de tránsito, por lo cuál es de interés saber cuales son las intersecciones con mayor cantidad de atropellos en la Región Metropolitana. Lo anterior será representado a continuación:
 
 ```{r echo = FALSE}
 grafico_int 
@@ -156,6 +156,8 @@ Para finalizar, la intersección de calles que posee una mayor cantidad de accid
 Asociación Nacional Automotriz de Chile (ANAC). (Octubre de 2021). *Informe del Mercado Automotor.* Obtenido de: <https://www.anac.cl/wp-content/uploads/2021/11/10-ANAC-Mercado-Automotor-Octubre-2021.pdf>
 
 Comisión Nacional de Seguridad de Tránsito (CONASET). (2020). *Diagnóstico de siniestros de tránsito en Chile.* Obtenido de: <https://www.conaset.cl/wp-content/uploads/2021/06/Chile-2020.pdf>
+
+Comisión Nacional de Seguridad de Tránsito. (2019, 29 julio). *Atropellos, Gran Santiago, RM Chile, 2018.* Obtenido de: <https://mapas-conaset.opendata.arcgis.com/datasets/a6b29cedc95d41e98e5a56a617afdded_0/about>
 
 Julien Barnier (2021). rmdformats: HTML Output Formats and Templates for 'rmarkdown' Documents. R package version 1.0.3. <https://CRAN.R-project.org/package=rmdformats>
 
